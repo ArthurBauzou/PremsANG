@@ -1,1 +1,14 @@
-<p>prods works!</p>
+<div class="row mx-2">
+  <h3 class="text-center">Les produits</h3>
+  <!-- <p (click)="products()">click</p> -->
+  <div class="col-lg-3 col-md-6" *ngFor="let p of prods">
+    <div style="height: 12rem;">
+      <img src="{{p.image}}" style="padding: 0.5em; border-radius: 1em; object-fit: cover; width: 100%; height: 100%; object-position: center;">
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{p.name}}</h5>
+      <p class="card-text">{{p.descr}}</p>
+      <a href="#" class="btn btn-primary">{{p.price}}€</a>
+    </div>
+  </div>
+</div>
