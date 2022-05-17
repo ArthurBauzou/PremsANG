@@ -5,7 +5,7 @@
       "type": "fruit",
       "name": "Banane",
       "price": 1.5,
-      "descr": "La banane est le fruit ou la baie dérivant de l’inflorescence du bananier. Les bananes sont des fruits très généralement stériles issus de variétés domestiquées. Seuls les fruits des bananiers sauvages et de quelques cultivars domestiques contiennent des graines. Les bananes sont généralement jaunes avec des taches brunâtres lorsqu'elles sont mûres et vertes quand elles ne le sont pas.",
+      "descr": "La banane est le fruit ou la baie dérivant de l’inflorescence du bananier. Les bananes sont des fruits très généralement stériles issus de variétés domestiquées. Seuls les fruits des bananiers sauvages et de quelques cultivars domestiques contiennent des graines.",
       "image" : "https://upload.wikimedia.org/wikipedia/commons/a/a1/RedBananasMetepec.JPG"
     },
     {
@@ -29,7 +29,7 @@
       "type": "legume",
       "name": "Poivron",
       "price": 0.7,
-      "descr": "Les poivrons sont des variétés de piments doux de l'espèce Capsicum annuum à très gros fruits1. Le terme désigne à la fois le fruit et la plante. C'est une plante vivace cultivée comme une annuelle de la famille des Solanacées originaire du Mexique, d'Amérique centrale et d'Amérique du Sud. La plante est cultivée comme plante potagère pour ses fruits consommés, crus ou cuits, comme légumes.",
+      "descr": "Les poivrons sont des variétés de piments doux de l'espèce Capsicum annuum à très gros fruits1. Le terme désigne à la fois le fruit et la plante. C'est une plante vivace cultivée comme une annuelle de la famille des Solanacées originaire du Mexique, d'Amérique centrale et d'Amérique du Sud.",
       "image": "https://upload.wikimedia.org/wikipedia/commons/9/99/Colorful_Bell_Peppers.JPG"
     }
   ]
