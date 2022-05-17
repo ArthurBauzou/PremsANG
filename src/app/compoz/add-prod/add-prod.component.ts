@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProdsService } from 'src/app/services/prods.service';
 
 @Component({
   selector: 'app-add-prod',
@@ -7,18 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddProdComponent implements OnInit {
 
-  constructor() { }
+  price:number = 1;
+
+  constructor(private prodServ: ProdsService) { }
   
   ngOnInit(): void {
-
   }
 
-  updatePrice(a:string) {
-
-    let preview:any = document.getElementById("prodPricePreview");
-    console.log(a)
-    preview.innerHTML = a;
-
+  addProd(produit:any) {
+    console.log(produit.value)
+    let data = produit.value
+    this.prodServ.addProds(data).subscribe(data => {
+      console.log("les données sont enregistrées")
+    })
   }
 
 }

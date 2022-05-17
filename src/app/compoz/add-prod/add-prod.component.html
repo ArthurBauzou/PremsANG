@@ -1,37 +1,73 @@
 <div class="row py-4">
   <div class="col-md-2 col-lg-3"></div>
-  <form class="col-md-8 col-lg-6">
+  <form (ngSubmit)="addProd(produit)" #produit="ngForm" class="col-md-8 col-lg-6">
+  
+    <h1>Ajouter un produit</h1>
+    <!-- TYPE -->
     <div class="form-floating mb-3">
-      <select class="form-select" id="prodType" required style="height: 4rem">
+      <select
+      class="form-select"
+      id="prodType"
+      style="height: 4rem"
+      name="type"
+      ngModel>
         <option selected disabled value="">Choisissez…</option>
-        <option>Fruit</option>
-        <option>Légume</option>
-        <option>Autre</option>
+        <option value="fruit">Fruit</option>
+        <option value="legume">Légume</option>
+        <option value="autre">Autre</option>
       </select>
       <label for="prodType">Type de produit</label>
     </div>
+    <!-- NOM -->
     <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="prodName" required>
+      <input
+      type="text"
+      class="form-control"
+      id="prodName"
+      name="name"
+      ngModel>
       <label for="prodName">Nom du produit</label>
     </div>
+    <!-- IMAGE -->
     <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="prodImageURL" required>
+      <input
+      type="text"
+      class="form-control"
+      id="prodImageURL"
+      name="image"
+      ngModel>
       <label for="prodImageURL">URL de l’image</label>
     </div>
+    <!-- DESCRIPTION -->
     <div class="form-floating mb-3">
-      <textarea class="form-control" id="prodDescription" style="height: 6rem"></textarea>
+      <textarea
+      class="form-control"
+      id="prodDescription"
+      style="height: 6rem"
+      name="descr"
+      ngModel></textarea>
       <label for="prodDescription">Description du produit</label>
     </div>
+    <!-- PRIX -->
     <div class="mb-3 row me-0">
       <div class="col-1">
-        <label for="prodPrice">Prix</label>
+        <label for="prodPrice" class="text-secondary">Prix</label>
       </div>
       <div class="col-9">
-        <input type="range" class="form-range" id="prodPrice" required min="0" max="10" step="0.1" (change)="updatePrice(price.value)" #price value="1">
+        <input
+        type="range"
+        class="form-range"
+        id="prodPrice"
+        min="0"
+        max="20"
+        step="0.1"
+        (change)="price = +priceR.value"
+        #priceR
+        name="price"
+        ngModel="{{price}}">
       </div>
-      <div class="col-2 border bg-scondary rounded" id="prodPricePreview">1</div>
+      <div class="col-2 border bg-scondary rounded" id="prodPricePreview">{{price}}</div>
     </div>
     <button type="submit" class="btn btn-primary">Ajouter le produit</button>
   </form>
 </div>
-

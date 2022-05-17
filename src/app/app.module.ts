@@ -9,6 +9,8 @@ import { ProdsComponent } from './compoz/prods/prods.component';
 import { HomeComponent } from './compoz/home/home.component';
 import { AddProdComponent } from './compoz/add-prod/add-prod.component';
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +22,7 @@ import { AddProdComponent } from './compoz/add-prod/add-prod.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

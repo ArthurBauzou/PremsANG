@@ -4,15 +4,15 @@
       "id": 1,
       "type": "fruit",
       "name": "Banane",
-      "price": 1.5,
+      "price": "1.5",
       "descr": "La banane est le fruit ou la baie dérivant de l’inflorescence du bananier. Les bananes sont des fruits très généralement stériles issus de variétés domestiquées. Seuls les fruits des bananiers sauvages et de quelques cultivars domestiques contiennent des graines.",
-      "image" : "https://upload.wikimedia.org/wikipedia/commons/a/a1/RedBananasMetepec.JPG"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/a1/RedBananasMetepec.JPG"
     },
     {
       "id": 2,
       "type": "fruit",
       "name": "Fraise",
-      "price": 2.3,
+      "price": "2.3",
       "descr": "La fraise est un fruit rouge issu des fraisiers, espèces de plantes herbacées appartenant au genre Fragaria (famille des Rosacées), dont plusieurs variétés sont cultivées. Celui-ci est considéré comme un faux-fruit, le vrai étant l'akène.",
       "image": "https://upload.wikimedia.org/wikipedia/commons/7/73/Fraises_MIN_Rungis.jpg"
     },
@@ -20,7 +20,7 @@
       "id": 3,
       "type": "legume",
       "name": "Céleri-rave",
-      "price": 1.7,
+      "price": "1.7",
       "descr": "Le céleri-rave (Apium graveolens) est une plante herbacée bisannuelle de la famille des Apiacées (ou Ombellifères), tribu des Apieae. Elle est cultivée comme plante potagère pour la base de sa tige tubérisée consommée comme légume. C'est une variété de céleri.",
       "image": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Sellerieknollen.JPG"
     },
@@ -28,10 +28,17 @@
       "id": 4,
       "type": "legume",
       "name": "Poivron",
-      "price": 0.7,
+      "price": "0.7",
       "descr": "Les poivrons sont des variétés de piments doux de l'espèce Capsicum annuum à très gros fruits1. Le terme désigne à la fois le fruit et la plante. C'est une plante vivace cultivée comme une annuelle de la famille des Solanacées originaire du Mexique, d'Amérique centrale et d'Amérique du Sud.",
       "image": "https://upload.wikimedia.org/wikipedia/commons/9/99/Colorful_Bell_Peppers.JPG"
+    },
+    {
+      "type": "legume",
+      "name": "Aubergine",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Solanum_melongena_26_08_2012_%281%29.JPG",
+      "descr": "L’aubergine est une plante dicotylédone de la famille des Solanaceae, cultivée pour son légume-fruit. Le terme aubergine désigne la plante et le fruit. Elle est originaire d'Asie où elle fut domestiquée à l'époque préhistorique et constitue avec les aubergines africaines",
+      "price": "3.9",
+      "id": 5
     }
   ]
-  
 }
