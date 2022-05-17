@@ -8,8 +8,8 @@ import  { AddProdComponent } from './compoz/add-prod/add-prod.component'
 const routes: Routes = [
   // { path: '', component: AppComponent, },
   { path: 'produits', component: ProdsComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'addProd', component: AddProdComponent}
+  { path: 'accueil', component: HomeComponent },
+  { path: 'ajouter-un-produit', component: AddProdComponent}
 ];
 
 @NgModule({

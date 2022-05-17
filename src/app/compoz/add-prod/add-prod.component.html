@@ -1,1 +1,37 @@
-<p>add-prod works!</p>
+<div class="row py-4">
+  <div class="col-md-2 col-lg-3"></div>
+  <form class="col-md-8 col-lg-6">
+    <div class="form-floating mb-3">
+      <select class="form-select" id="prodType" required style="height: 4rem">
+        <option selected disabled value="">Choisissez…</option>
+        <option>Fruit</option>
+        <option>Légume</option>
+        <option>Autre</option>
+      </select>
+      <label for="prodType">Type de produit</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="prodName" required>
+      <label for="prodName">Nom du produit</label>
+    </div>
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="prodImageURL" required>
+      <label for="prodImageURL">URL de l’image</label>
+    </div>
+    <div class="form-floating mb-3">
+      <textarea class="form-control" id="prodDescription" style="height: 6rem"></textarea>
+      <label for="prodDescription">Description du produit</label>
+    </div>
+    <div class="mb-3 row me-0">
+      <div class="col-1">
+        <label for="prodPrice">Prix</label>
+      </div>
+      <div class="col-9">
+        <input type="range" class="form-range" id="prodPrice" required min="0" max="10" step="0.1" (change)="updatePrice(price.value)" #price value="1">
+      </div>
+      <div class="col-2 border bg-scondary rounded" id="prodPricePreview">1</div>
+    </div>
+    <button type="submit" class="btn btn-primary">Ajouter le produit</button>
+  </form>
+</div>
+

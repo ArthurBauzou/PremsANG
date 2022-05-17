@@ -8,8 +8,17 @@ import { Component, OnInit } from '@angular/core';
 export class AddProdComponent implements OnInit {
 
   constructor() { }
-
+  
   ngOnInit(): void {
+
+  }
+
+  updatePrice(a:string) {
+
+    let preview:any = document.getElementById("prodPricePreview");
+    console.log(a)
+    preview.innerHTML = a;
+
   }
 
 }
