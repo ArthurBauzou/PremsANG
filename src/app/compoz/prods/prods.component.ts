@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProdsService } from 'src/app/services/prods.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-prods',
@@ -10,16 +11,35 @@ export class ProdsComponent implements OnInit {
 
   prods:any;
 
-  constructor(private PrServ : ProdsService ) { }
+  constructor(
+    private prServ : ProdsService,
+    private router : Router
+    ) { }
 
   ngOnInit(): void {
-    this.products()
+    this.getProducts();
+    console.log("init")
   }
   
-  products(){
-    this.PrServ.getProds().subscribe(d=>{
-      this.prods = d;
-      console.log(this.prods)
+  getProducts(){
+    this.prServ.getProds().subscribe({
+      next: (d) => this.prods = d,
+      // error: (e) => console.log("err",e),
+      // complete: () => console.log('complete')
     })
   }
+
+  delProduit(id:number){
+    this.prServ.delProd(id).subscribe({
+      next:() => console.log(`L’objet avec id = ${id} a été supprimé`),
+      error: (err) => console.log("erreur lors de la suppression", err),
+      complete: () => this.getProducts()
+    });
+  }
+
+  // showDet(id:number) {
+  //   let p = this.prods.find((obj:any) => {return obj.id == id} )
+  //   p['show'] = true;
+  //   console.log(p)
+  // }
 }

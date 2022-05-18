@@ -5,9 +5,20 @@
       <img src="{{p.image}}" style="padding: 0.5em; border-radius: 1em; object-fit: cover; width: 100%; height: 100%; object-position: center;">
     </div>
     <div class="card-body">
-      <h5 class="card-title">{{p.name}}</h5>
-      <p class="card-text">{{p.descr}}</p>
-      <a class="btn btn-primary">{{p.price}}€</a>
+      <div class="row">
+        <h5 class="card-title col">{{p.name}}</h5>
+        <p class="text-secondary col-2" role="button" title="afficher la description" (click)="p.show = !p.show">
+          <i class="fa-solid fa-square-caret-down" *ngIf="!p.show"></i>
+          <i class="fa-solid fa-square-caret-up" *ngIf="p.show"></i>
+        </p>
+      </div>
+      <p class="card-text" *ngIf="p.show">{{p.descr}}</p>
+      <div class="row">
+        <span class="col btn btn-primary me-2">{{p.price}}€</span>
+        <span class="col-4 btn btn-outline-danger" (click)="delProduit(p.id)">
+          <i class="fa-solid fa-trash-can"></i>
+        </span>
+      </div>
     </div>
   </div>
 </div>
