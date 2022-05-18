@@ -39,6 +39,30 @@
       "descr": "L’aubergine est une plante dicotylédone de la famille des Solanaceae, cultivée pour son légume-fruit. Le terme aubergine désigne la plante et le fruit. Elle est originaire d'Asie où elle fut domestiquée à l'époque préhistorique et constitue avec les aubergines africaines",
       "price": "3.9",
       "id": 5
+    },
+    {
+      "type": "fruit",
+      "name": "Figue",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Grappe_de_figues.jpg",
+      "descr": "La figue est le fruit du figuier commun (Ficus carica) et de quelques autres arbres de la famille des moracées, emblème du bassin méditerranéen où il est cultivé depuis des millénaires. Aux Antilles et dans l'océan Indien, le terme figue désigne aussi les bananes. Pour être plus précis, la figue n'est pas un fruit au sens botanique du terme. Il s'agit en fait d'un réceptacle charnu, le sycone, qui contient les fleurs et, à maturité, une infrutescence d'akènes éparpillés dans une pulpe comestible.",
+      "price": "10",
+      "id": 6
+    },
+    {
+      "type": "legume",
+      "name": "Pâtisson",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/ad/USDA_petit_pan_squash.jpg",
+      "descr": "Les pâtissons ou artichaut d'Espagne, bonnet-de-prêtre, bonnet d'électeur, couronne impériale, ciblème (Louisiane) sont un groupe de variétés cultivées comme légume de la famille des courges / cucurbitacées de petite taille. ",
+      "price": "4.2",
+      "id": 7
+    },
+    {
+      "type": "fruit",
+      "name": "Orange",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Local_Orange_Variety_of_Kozan_-_Kozan_Yerli_Portakal_04.jpg",
+      "descr": "L’orange ou orange douce est le fruit de l'oranger (Citrus sinensis L.) de la famille des Rutacées. Comme pour tous les agrumes, il s'agit d'une forme particulière de baie appelée hespéride. Il existe plusieurs variétés d’oranges, classées en quatre groupes variétaux. Comestible, elle est réputée pour sa grande teneur en vitamine C. C'est le quatrième fruit le plus cultivé au monde. ",
+      "price": "7.6",
+      "id": 8
     }
   ]
 }

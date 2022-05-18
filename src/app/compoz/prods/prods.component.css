@@ -1,0 +1,22 @@
+.descrText {
+    font-size: small;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 80%;
+}
+.descrTextShow {
+    font-size: small;
+    white-space: normal;
+}
+
+.btnDetail {
+    position: absolute;
+    right: 16px;
+    top: 4px;
+    color: rgb(174, 174, 174);
+}
+.btnDetail:hover {
+    cursor: pointer;
+    color: gray;
+}

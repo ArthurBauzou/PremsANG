@@ -1,21 +1,26 @@
 <div class="row mx-2">
   <h2 class="text-center py-4">Les produits</h2>
-  <div class="col-lg-3 col-md-6" *ngFor="let p of prods">
+  <div class="col-lg-3 col-md-6 mb-4" *ngFor="let p of prods">
     <div style="height: 12rem;">
       <img src="{{p.image}}" style="padding: 0.5em; border-radius: 1em; object-fit: cover; width: 100%; height: 100%; object-position: center;">
     </div>
-    <div class="card-body">
-      <div class="row">
-        <h5 class="card-title col">{{p.name}}</h5>
-        <p class="text-secondary col-2" role="button" title="afficher la description" (click)="p.show = !p.show">
-          <i class="fa-solid fa-square-caret-down" *ngIf="!p.show"></i>
-          <i class="fa-solid fa-square-caret-up" *ngIf="p.show"></i>
-        </p>
-      </div>
-      <p class="card-text" *ngIf="p.show">{{p.descr}}</p>
-      <div class="row">
-        <span class="col btn btn-primary me-2">{{p.price}}€</span>
-        <span class="col-4 btn btn-outline-danger" (click)="delProduit(p.id)">
+    <div class="card-body pt-1" style="position: relative;">
+      <h5 class="card-title col">{{p.name}}</h5>
+      <p [ngClass]="!p.show? 'descrText' : 'descrTextShow'">{{p.descr}}</p>
+      <p class="btnDetail" (click)="p.show = !p.show">
+        <i class="fa-solid fa-square-caret-down" *ngIf="!p.show"></i>
+        <i class="fa-solid fa-square-caret-up" *ngIf="p.show"></i>
+      </p>
+
+      <div class="d-flex">
+        <span class="btn btn-primary me-auto">{{p.price}}€</span>
+        <span class="btn btn-secondary mx-1" data-bs-toggle="modal" data-bs-target="#editModal">
+          <i class="fa-solid fa-pen-to-square"></i>
+        </span>
+        <span class="btn btn-outline-danger"
+        data-bs-toggle="modal"
+        data-bs-target="#suprModal"
+        (click)="prodasup=p">
           <i class="fa-solid fa-trash-can"></i>
         </span>
       </div>
@@ -27,4 +32,101 @@
   <div class="col-md-4"></div>
   <a class="btn btn-outline-primary col-md-4 col-12" routerLink="/ajouter-un-produit">Ajouter un Produit</a>
   <div class="col-md-4"></div>
+</div>
+
+
+<!-- MODAL EDITION -->
+<div class="modal" tabindex="-1" id="editModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Éditer le produit</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #produit="ngForm">
+          <!-- <form (ngSubmit)="editProd(produit)" #produit="ngForm"> -->
+          <!-- NOM -->
+          <div class="form-floating mb-3">
+            <input
+            type="text"
+            class="form-control"
+            id="prodName"
+            name="name"
+            ngModel>
+            <label for="prodName">Nom du Produit</label>
+          </div>
+          <!-- TYPE -->
+          <div class="form-floating mb-3">
+            <select
+            class="form-select"
+            id="prodType"
+            style="height: 4rem"
+            name="type"
+            ngModel>
+              <option value="fruit">Fruit</option>
+              <option value="legume">Légume</option>
+              <option value="autre">Autre</option>
+            </select>
+            <label for="prodType">Type de produit</label>
+          </div>
+          <!-- IMAGE -->
+          <div class="form-floating mb-3">
+            <input
+            type="text"
+            class="form-control"
+            id="prodImageURL"
+            name="image"
+            ngModel
+            #image>
+            <label for="prodImageURL">URL de l’image</label>
+          </div>
+          <!-- DESCRIPTION -->
+          <div class="form-floating mb-3">
+            <textarea
+            class="form-control"
+            id="prodDescription"
+            style="min-height: 6rem; overflow-y: hidden;"
+            name="descr"
+            oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px"'
+            ngModel></textarea>
+            <label for="prodDescription">Description du produit</label>
+          </div>
+          <!-- PRIX -->
+          <div class="form-floating mb-3">
+            <input
+            type="number"
+            class="form-control"
+            id="prodPrice"
+            name="price"
+            ngModel>
+            <label for="prodPrice">Prix</label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary">Sauvegarder</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL SUPPRESSION -->
+<div class="modal" tabindex="-1" id="suprModal">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-center">Supprimer le produit {{prodasup.name}} ?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h2 class="text-danger text-center" *ngIf="!prodasup.deleted">ÊTES VOUS BIEN CERTAIN ??</h2>
+        <h4 class="text-center text-secondary" *ngIf="prodasup.deleted">Y’a plus {{prodasup.name}} <i class="fa-solid fa-face-frown"></i></h4>
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" *ngIf="prodasup.deleted">Fermer</button>
+        <button type="button" class="btn btn-danger" (click)="delProduit(prodasup.id)" *ngIf="!prodasup.deleted">OUI</button>
+      </div>
+    </div>
+  </div>
 </div>

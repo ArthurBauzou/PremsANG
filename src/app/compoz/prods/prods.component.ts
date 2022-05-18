@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProdsService } from 'src/app/services/prods.service';
-import { Router } from '@angular/router';
+// import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-prods',
@@ -9,37 +9,36 @@ import { Router } from '@angular/router';
 })
 export class ProdsComponent implements OnInit {
 
-  prods:any;
+  prods: any;
+  prodasup: any = {};
+  // prodedit: any;
 
   constructor(
     private prServ : ProdsService,
-    private router : Router
+    // private router : Router
     ) { }
 
   ngOnInit(): void {
     this.getProducts();
-    console.log("init")
   }
   
   getProducts(){
     this.prServ.getProds().subscribe({
       next: (d) => this.prods = d,
-      // error: (e) => console.log("err",e),
-      // complete: () => console.log('complete')
-    })
+      error: (e) => console.log("err",e),
+      complete: () => {for (let p of this.prods) {p.show = false}}
+    });
   }
 
   delProduit(id:number){
     this.prServ.delProd(id).subscribe({
       next:() => console.log(`L’objet avec id = ${id} a été supprimé`),
       error: (err) => console.log("erreur lors de la suppression", err),
-      complete: () => this.getProducts()
+      complete: () => { 
+        this.getProducts();
+        this.prodasup.deleted = true;
+      }
     });
   }
 
-  // showDet(id:number) {
-  //   let p = this.prods.find((obj:any) => {return obj.id == id} )
-  //   p['show'] = true;
-  //   console.log(p)
-  // }
 }

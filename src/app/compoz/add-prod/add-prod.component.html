@@ -50,8 +50,9 @@
       <textarea
       class="form-control"
       id="prodDescription"
-      style="height: 6rem"
+      style="min-height: 6rem; overflow-y: hidden;"
       name="descr"
+      oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px"'
       ngModel></textarea>
       <label for="prodDescription">Description du produit</label>
     </div>
@@ -66,7 +67,7 @@
         class="form-range"
         id="prodPrice"
         min="0"
-        max="1000"
+        max="20"
         step="0.1"
         (change)="price = +priceR.value"
         #priceR
