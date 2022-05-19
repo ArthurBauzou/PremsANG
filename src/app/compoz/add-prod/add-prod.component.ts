@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './add-prod.component.html',
   styleUrls: ['./add-prod.component.css']
 })
+
 export class AddProdComponent implements OnInit {
 
   price:number = 1;
@@ -21,6 +22,7 @@ export class AddProdComponent implements OnInit {
 
   addProd(produit:any) {
     let data = produit.value
+    data.dispo = true
     this.prodServ.addProd(data).subscribe({
       next: () => console.log("les données sont enregistrées"),
       error: (err) => console.log("il y a eu une erreur omg", err),

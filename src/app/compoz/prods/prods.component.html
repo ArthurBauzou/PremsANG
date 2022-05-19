@@ -1,32 +1,41 @@
-<div class="row mx-2">
-  <h2 class="text-center py-4">Les produits</h2>
-  <div class="col-lg-3 col-md-6 mb-4" *ngFor="let p of prods">
-    <div style="height: 12rem;">
-      <img src="{{p.image}}" style="padding: 0.5em; border-radius: 1em; object-fit: cover; width: 100%; height: 100%; object-position: center;">
-    </div>
-    <div class="card-body pt-1" style="position: relative;">
-      <h5 class="card-title col">{{p.name}}</h5>
-      <p [ngClass]="!p.show? 'descrText' : 'descrTextShow'">{{p.descr}}</p>
-      <p class="btnDetail" (click)="p.show = !p.show">
-        <i class="fa-solid fa-square-caret-down" *ngIf="!p.show"></i>
-        <i class="fa-solid fa-square-caret-up" *ngIf="p.show"></i>
-      </p>
+<div class="row">
+  <div class="filterBar col-2">
 
-      <div class="d-flex">
-        <span class="btn btn-primary me-auto">{{p.price}}€</span>
-        <span
-        class="btn btn-secondary mx-1"
-        data-bs-toggle="modal"
-        data-bs-target="#editModal"
-        (click)="loadProdEdit(p)">
-          <i class="fa-solid fa-pen-to-square"></i>
-        </span>
-        <span class="btn btn-outline-danger"
-        data-bs-toggle="modal"
-        data-bs-target="#suprModal"
-        (click)="loadProdASupp(p)">
-          <i class="fa-solid fa-trash-can"></i>
-        </span>
+  </div>
+  <div class="row">
+    <h2 class="text-center py-4">Les produits</h2>
+    <div class="col-lg-3 col-md-4 mb-4" *ngFor="let p of prods">
+      <div style="height: 12rem; position: relative">
+        <img src="{{p.image}}" style="padding: 0.5em; border-radius: 1em; object-fit: cover; width: 100%; height: 100%; object-position: center;">
+        <div class="dispoToggle rounded-pill px-2" (click)="switchDispo(p.id, p.dispo)" role="button">
+          <span *ngIf="p.dispo"> Disponible </span>
+          <span *ngIf="!p.dispo"> Épuisé </span>
+        </div>
+      </div>
+      <div class="card-body pt-1" style="position: relative;">
+        <h5 class="card-title col">{{p.name}}</h5>
+        <p [ngClass]="!p.show? 'descrText' : 'descrTextShow'">{{p.descr}}</p>
+        <p class="btnDetail" (click)="p.show = !p.show">
+          <i class="fa-solid fa-square-caret-down" *ngIf="!p.show"></i>
+          <i class="fa-solid fa-square-caret-up" *ngIf="p.show"></i>
+        </p>
+  
+        <div class="d-flex">
+          <span class="btn btn-primary me-auto">{{p.price}}€</span>
+          <span
+          class="btn btn-secondary mx-1"
+          data-bs-toggle="modal"
+          data-bs-target="#editModal"
+          (click)="loadProdEdit(p)">
+            <i class="fa-solid fa-pen-to-square"></i>
+          </span>
+          <span class="btn btn-outline-danger"
+          data-bs-toggle="modal"
+          data-bs-target="#suprModal"
+          (click)="loadProdASupp(p)">
+            <i class="fa-solid fa-trash-can"></i>
+          </span>
+        </div>
       </div>
     </div>
   </div>
@@ -105,6 +114,7 @@
             name="descr"
             onfocusout='this.style.height = "5rem"'
             onfocus='this.style.height = ""; this.style.height = this.scrollHeight + "px"'
+            oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px"'
             ngModel={{prodedit.descr}}
             #descr
             ></textarea>

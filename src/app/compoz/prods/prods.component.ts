@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ProdsService } from 'src/app/services/prods.service';
-// import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-prods',
@@ -41,23 +40,36 @@ export class ProdsComponent implements OnInit {
   }
 
   editProd(id:number, prEd:any) {
-    console.log(prEd.value);
-    this.prServ.updateProd(id, prEd.value).subscribe({
-      next: ()=> console.log('bien édité le produit '+prEd.value.name+' avec id = '+prEd.value.id),
+    let newData = prEd.value;
+    newData.dispo = this.prodedit.dispo;
+    this.prServ.updateProd(id, newData).subscribe({
+      next: ()=> console.log('bien édité le produit '+newData.name+' avec id = '+id),
       error: (err) => console.log("erreur lors de l’édition", err),
       complete: () => { 
         this.getProducts();
         this.prodedit.edited = true;
       }
-    })
+    });
+  }
+
+  switchDispo(id:number, disp:boolean) {
+    let data = {dispo: !disp}
+    this.prServ.patchProd(id, data).subscribe({
+      next: ()=> console.log('la dispo est switchée'),
+      error: (err)=> console.log('erreur dans le switch', err),
+      complete: () => {
+        this.getProducts();
+      }
+    });
   }
 
   loadProdEdit(p:any) {
     this.prodedit.image = p.image;
+    this.prodedit.id = p.id;
     this.prodedit.name = p.name;
     this.prodedit.descr = p.descr;
     this.prodedit.type = p.type;
-    this.prodedit.id = p.id;
+    this.prodedit.dispo = p.dispo;
     this.prodedit.price = p.price;
     this.prodedit.imageShow = false;
     this.prodedit.edited = false;

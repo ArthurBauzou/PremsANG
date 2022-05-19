@@ -25,3 +25,20 @@
     color: rgb(85, 55, 55);
     padding: 1rem;
 }
+
+.dispoToggle {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: rgba(255, 242, 224, 0.217);
+    transition: 0.15s;
+}
+.dispoToggle:hover {
+    background-color: rgba(255, 242, 224, 0.9);
+}
+
+.filterBar {
+    background-color: black;
+    min-width: 200px;
+}
+

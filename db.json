@@ -5,32 +5,36 @@
       "type": "fruit",
       "image": "https://upload.wikimedia.org/wikipedia/commons/a/a1/RedBananasMetepec.JPG",
       "descr": "La banane est le fruit ou la baie dérivant de l’inflorescence du bananier. Les bananes sont des fruits très généralement stériles issus de variétés domestiquées. Seuls les fruits des bananiers sauvages et de quelques cultivars domestiques contiennent des graines.",
-      "price": 1.2,
-      "id": 1
+      "price": 1.8,
+      "id": 1,
+      "dispo": true
     },
     {
+      "id": 2,
       "name": "Fraise",
       "type": "fruit",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/7/73/Fraises_MIN_Rungis.jpg",
       "descr": "La fraise est un fruit rouge issu des fraisiers, espèces de plantes herbacées appartenant au genre Fragaria (famille des Rosacées), dont plusieurs variétés sont cultivées. Celui-ci est considéré comme un faux-fruit, le vrai étant l'akène.",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/7/73/Fraises_MIN_Rungis.jpg",
       "price": 4,
-      "id": 2
+      "dispo": true
     },
     {
       "id": 3,
       "type": "legume",
       "name": "Céleri-rave",
-      "price": "1.7",
       "descr": "Le céleri-rave (Apium graveolens) est une plante herbacée bisannuelle de la famille des Apiacées (ou Ombellifères), tribu des Apieae. Elle est cultivée comme plante potagère pour la base de sa tige tubérisée consommée comme légume. C'est une variété de céleri.",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Sellerieknollen.JPG"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Sellerieknollen.JPG",
+      "price": 1.7,
+      "dispo": true
     },
     {
       "id": 4,
-      "type": "legume",
       "name": "Poivron",
-      "price": "0.7",
+      "type": "legume",
       "descr": "Les poivrons sont des variétés de piments doux de l'espèce Capsicum annuum à très gros fruits1. Le terme désigne à la fois le fruit et la plante. C'est une plante vivace cultivée comme une annuelle de la famille des Solanacées originaire du Mexique, d'Amérique centrale et d'Amérique du Sud.",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/9/99/Colorful_Bell_Peppers.JPG"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/99/Colorful_Bell_Peppers.JPG",
+      "price": "0.7",
+      "dispo": true
     },
     {
       "name": "Aubergine",
@@ -38,7 +42,8 @@
       "image": "https://fr.chatelaine.com/wp-content/uploads/2020/10/Aubergines_1280x720.jpg",
       "descr": "L’aubergine est une plante dicotylédone de la famille des Solanaceae, cultivée pour son légume-fruit. Le terme aubergine désigne la plante et le fruit. Elle est originaire d'Asie où elle fut domestiquée à l'époque préhistorique et constitue avec les aubergines africaines",
       "price": "3.9",
-      "id": 5
+      "id": 5,
+      "dispo": true
     },
     {
       "name": "Figue",
@@ -46,7 +51,8 @@
       "image": "http://img.over-blog-kiwi.com/0/55/36/22/20150903/ob_38df21_p1090625a-medium.JPG",
       "descr": "La figue est le fruit du figuier commun (Ficus carica) et de quelques autres arbres de la famille des moracées, emblème du bassin méditerranéen où il est cultivé depuis des millénaires. Aux Antilles et dans l'océan Indien, le terme figue désigne aussi les bananes. Pour être plus précis, la figue n'est pas un fruit au sens botanique du terme. Il s'agit en fait d'un réceptacle charnu, le sycone, qui contient les fleurs et, à maturité, une infrutescence d'akènes éparpillés dans une pulpe comestible.",
       "price": "10",
-      "id": 6
+      "id": 6,
+      "dispo": true
     },
     {
       "type": "legume",
@@ -54,7 +60,8 @@
       "image": "https://upload.wikimedia.org/wikipedia/commons/a/ad/USDA_petit_pan_squash.jpg",
       "descr": "Les pâtissons ou artichaut d'Espagne, bonnet-de-prêtre, bonnet d'électeur, couronne impériale, ciblème (Louisiane) sont un groupe de variétés cultivées comme légume de la famille des courges / cucurbitacées de petite taille. ",
       "price": "4.2",
-      "id": 7
+      "id": 7,
+      "dispo": true
     },
     {
       "type": "fruit",
@@ -62,7 +69,35 @@
       "image": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Local_Orange_Variety_of_Kozan_-_Kozan_Yerli_Portakal_04.jpg",
       "descr": "L’orange ou orange douce est le fruit de l'oranger (Citrus sinensis L.) de la famille des Rutacées. Comme pour tous les agrumes, il s'agit d'une forme particulière de baie appelée hespéride. Il existe plusieurs variétés d’oranges, classées en quatre groupes variétaux. Comestible, elle est réputée pour sa grande teneur en vitamine C. C'est le quatrième fruit le plus cultivé au monde. ",
       "price": "7.6",
-      "id": 8
+      "id": 8,
+      "dispo": true
+    },
+    {
+      "type": "legume",
+      "name": "Fenouil",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Fenouil.jpg",
+      "descr": "Le Fenouil ou Fenouil commun (Foeniculum vulgare, syn. Foeniculum officinale) est une plante généralement vivace mais parfois bisannuelle de la famille des apiacées (ombellifères). Les variétés cultivées de cette espèce de fenouil sont utilisées en alimentation pour le renflement bulbeux et charnu de leurs feuilles imbriquées les unes dans les autres. Ce n'est pas un bulbe véritable (comme l'oignon).",
+      "price": "2.2",
+      "id": 9,
+      "dispo": true
+    },
+    {
+      "name": "Kiwi",
+      "type": "fruit",
+      "image": "https://file1.topsante.com/var/topsante/storage/images/1/3/1/1/1311210/le-kiwi-une-bombe-vitamine-c.jpg",
+      "descr": "Les kiwis sont des fruits de plusieurs espèces de lianes du genre Actinidia, famille des Actinidiaceae. Ils sont originaires de Chine, notamment de la province de Shaanxi. On en trouve par ailleurs dans des climats dits montagnards tropicaux. En France, les kiwis de l'Adour sont les seuls à disposer d'une indication géographique protégée (IGP)2 et d'un label rouge.",
+      "price": 0.7,
+      "dispo": true,
+      "id": 10
+    },
+    {
+      "name": "Machin chelou",
+      "type": "autre",
+      "image": "https://lecomptoirdetitam.files.wordpress.com/2010/02/lobjet-insolite-jour-l-3.jpeg",
+      "descr": "C’est assez joli, finement ouvragé, et puis y’a des grelots. Juste la partie rougeâtre je ne suis pas certain de ce que c’est. Mais est-ce si important ? Drelin drelin.",
+      "price": 2.9,
+      "dispo": true,
+      "id": 11
     }
   ]
 }
