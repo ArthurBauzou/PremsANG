@@ -1,20 +1,20 @@
 {
   "produits": [
     {
-      "id": 1,
-      "type": "fruit",
       "name": "Banane",
-      "price": "1.5",
+      "type": "fruit",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/a1/RedBananasMetepec.JPG",
       "descr": "La banane est le fruit ou la baie dérivant de l’inflorescence du bananier. Les bananes sont des fruits très généralement stériles issus de variétés domestiquées. Seuls les fruits des bananiers sauvages et de quelques cultivars domestiques contiennent des graines.",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/a/a1/RedBananasMetepec.JPG"
+      "price": 1.2,
+      "id": 1
     },
     {
-      "id": 2,
-      "type": "fruit",
       "name": "Fraise",
-      "price": "2.3",
+      "type": "fruit",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/7/73/Fraises_MIN_Rungis.jpg",
       "descr": "La fraise est un fruit rouge issu des fraisiers, espèces de plantes herbacées appartenant au genre Fragaria (famille des Rosacées), dont plusieurs variétés sont cultivées. Celui-ci est considéré comme un faux-fruit, le vrai étant l'akène.",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/7/73/Fraises_MIN_Rungis.jpg"
+      "price": 4,
+      "id": 2
     },
     {
       "id": 3,
@@ -33,17 +33,17 @@
       "image": "https://upload.wikimedia.org/wikipedia/commons/9/99/Colorful_Bell_Peppers.JPG"
     },
     {
-      "type": "legume",
       "name": "Aubergine",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Solanum_melongena_26_08_2012_%281%29.JPG",
+      "type": "legume",
+      "image": "https://fr.chatelaine.com/wp-content/uploads/2020/10/Aubergines_1280x720.jpg",
       "descr": "L’aubergine est une plante dicotylédone de la famille des Solanaceae, cultivée pour son légume-fruit. Le terme aubergine désigne la plante et le fruit. Elle est originaire d'Asie où elle fut domestiquée à l'époque préhistorique et constitue avec les aubergines africaines",
       "price": "3.9",
       "id": 5
     },
     {
-      "type": "fruit",
       "name": "Figue",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Grappe_de_figues.jpg",
+      "type": "fruit",
+      "image": "http://img.over-blog-kiwi.com/0/55/36/22/20150903/ob_38df21_p1090625a-medium.JPG",
       "descr": "La figue est le fruit du figuier commun (Ficus carica) et de quelques autres arbres de la famille des moracées, emblème du bassin méditerranéen où il est cultivé depuis des millénaires. Aux Antilles et dans l'océan Indien, le terme figue désigne aussi les bananes. Pour être plus précis, la figue n'est pas un fruit au sens botanique du terme. Il s'agit en fait d'un réceptacle charnu, le sycone, qui contient les fleurs et, à maturité, une infrutescence d'akènes éparpillés dans une pulpe comestible.",
       "price": "10",
       "id": 6

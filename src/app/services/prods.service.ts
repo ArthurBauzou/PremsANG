@@ -21,6 +21,13 @@ export class ProdsService {
     return this.http.delete("http://localhost:3000/produits/"+id)
   }
 
+  updateProd(id:number, prod:any) {
+    return this.http.put("http://localhost:3000/produits/"+id, prod)
+  }
+
+  patchProd(id:number, property:any) {
+    return this.http.patch("http://localhost:3000/produits/"+id, property)
+  }
 }
 
 

@@ -23,9 +23,11 @@ export class AddProdComponent implements OnInit {
     let data = produit.value
     this.prodServ.addProd(data).subscribe({
       next: () => console.log("les données sont enregistrées"),
-      error: (err) => console.log("il y a eu une erreur omg", err)
+      error: (err) => console.log("il y a eu une erreur omg", err),
+      complete: () => {
+        this.router.navigate(['produits']);
+      }
     });
-    this.router.navigate(['produits']);
   }
 
 }

@@ -20,3 +20,8 @@
     cursor: pointer;
     color: gray;
 }
+
+.badnews i {
+    color: rgb(85, 55, 55);
+    padding: 1rem;
+}

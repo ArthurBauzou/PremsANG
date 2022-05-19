@@ -14,13 +14,17 @@
 
       <div class="d-flex">
         <span class="btn btn-primary me-auto">{{p.price}}€</span>
-        <span class="btn btn-secondary mx-1" data-bs-toggle="modal" data-bs-target="#editModal">
+        <span
+        class="btn btn-secondary mx-1"
+        data-bs-toggle="modal"
+        data-bs-target="#editModal"
+        (click)="loadProdEdit(p)">
           <i class="fa-solid fa-pen-to-square"></i>
         </span>
         <span class="btn btn-outline-danger"
         data-bs-toggle="modal"
         data-bs-target="#suprModal"
-        (click)="prodasup=p">
+        (click)="loadProdASupp(p)">
           <i class="fa-solid fa-trash-can"></i>
         </span>
       </div>
@@ -44,8 +48,11 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form #produit="ngForm">
-          <!-- <form (ngSubmit)="editProd(produit)" #produit="ngForm"> -->
+        <form 
+        (ngSubmit)="editProd(prodedit.id,prodED)" 
+        #prodED="ngForm" 
+        id="editForm" 
+        *ngIf="!prodedit.edited">
           <!-- NOM -->
           <div class="form-floating mb-3">
             <input
@@ -53,7 +60,7 @@
             class="form-control"
             id="prodName"
             name="name"
-            ngModel>
+            ngModel={{prodedit.name}}>
             <label for="prodName">Nom du Produit</label>
           </div>
           <!-- TYPE -->
@@ -63,7 +70,7 @@
             id="prodType"
             style="height: 4rem"
             name="type"
-            ngModel>
+            ngModel={{prodedit.type}}>
               <option value="fruit">Fruit</option>
               <option value="legume">Légume</option>
               <option value="autre">Autre</option>
@@ -77,19 +84,30 @@
             class="form-control"
             id="prodImageURL"
             name="image"
-            ngModel
+            ngModel={{prodedit.image}}
+            (focus)="prodedit.imageShow = true"
+            (input)="prodedit.image = image.value"
             #image>
             <label for="prodImageURL">URL de l’image</label>
+          </div>
+          <div *ngIf="prodedit.imageShow">
+            <img
+            src="{{prodedit.image}}"
+            style="object-fit: cover; width: 50%; height: 50%; object-position: center; border-radius: 2rem"
+            class="mb-3">
           </div>
           <!-- DESCRIPTION -->
           <div class="form-floating mb-3">
             <textarea
             class="form-control"
             id="prodDescription"
-            style="min-height: 6rem; overflow-y: hidden;"
+            style="overflow-y: hidden"
             name="descr"
-            oninput='this.style.height = ""; this.style.height = this.scrollHeight + "px"'
-            ngModel></textarea>
+            onfocusout='this.style.height = "5rem"'
+            onfocus='this.style.height = ""; this.style.height = this.scrollHeight + "px"'
+            ngModel={{prodedit.descr}}
+            #descr
+            ></textarea>
             <label for="prodDescription">Description du produit</label>
           </div>
           <!-- PRIX -->
@@ -99,13 +117,19 @@
             class="form-control"
             id="prodPrice"
             name="price"
-            ngModel>
+            min="0.1" max="20" step="0.1"
+            ngModel={{prodedit.price}}>
             <label for="prodPrice">Prix</label>
           </div>
         </form>
+        <h4 *ngIf="prodedit.edited">Le produit {{prodedit.name}} a bien été édité</h4>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Sauvegarder</button>
+      <div class="modal-footer" *ngIf="!prodedit.edited">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+        <button type="submit" form="editForm"  class="btn btn-primary">Sauvegarder</button>
+      </div>
+      <div class="modal-footer" *ngIf="prodedit.edited">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
       </div>
     </div>
   </div>
@@ -116,12 +140,17 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title text-center">Supprimer le produit {{prodasup.name}} ?</h5>
+        <!-- <h5 class="modal-title" *ngIf="!prodasup.deleted">Supprimer le produit ?</h5> -->
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
+        <h4 class="text-center" *ngIf="!prodasup.deleted">Cela supprimera le produit {{prodasup.name | uppercase}}</h4>
         <h2 class="text-danger text-center" *ngIf="!prodasup.deleted">ÊTES VOUS BIEN CERTAIN ??</h2>
-        <h4 class="text-center text-secondary" *ngIf="prodasup.deleted">Y’a plus {{prodasup.name}} <i class="fa-solid fa-face-frown"></i></h4>
+        <h4 class="text-center badnews" *ngIf="prodasup.deleted">
+          <i class="fa-solid fa-face-frown"></i>
+          Y’a plus {{prodasup.name}}
+          <i class="fa-solid fa-face-frown"></i>
+        </h4>
       </div>
       <div class="modal-footer d-flex justify-content-center">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" *ngIf="prodasup.deleted">Fermer</button>
