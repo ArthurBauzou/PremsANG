@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ProdsService } from 'src/app/services/prods.service';
 
 @Component({
@@ -8,18 +8,18 @@ import { ProdsService } from 'src/app/services/prods.service';
 })
 export class ProdsComponent implements OnInit {
 
-  prods: any;
+  prods: any = [];
   prodasup: any = {};
   prodedit: any = {};
   filters:any = {
     "type": {
-      "legume": true,
-      "fruit": true,
-      "autre": true
+      "legume": false,
+      "fruit": false,
+      "autre": false
     },
     "prix": {
       "min": 0,
-      "max": 0,
+      "max": 0
     }
   };
 
@@ -44,7 +44,7 @@ export class ProdsComponent implements OnInit {
       next: () => console.log(`L’objet avec id = ${id} a été supprimé`),
       error: (err) => console.log("erreur lors de la suppression", err),
       complete: () => { 
-        this.getProducts();
+        this.getProducts(this.filters);
         this.prodasup.deleted = true;
       }
     });
@@ -57,7 +57,7 @@ export class ProdsComponent implements OnInit {
       next: ()=> console.log('bien édité le produit '+newData.name+' avec id = '+id),
       error: (err) => console.log("erreur lors de l’édition", err),
       complete: () => { 
-        this.getProducts();
+        this.getProducts(this.filters);
         this.prodedit.edited = true;
       }
     });
@@ -69,7 +69,7 @@ export class ProdsComponent implements OnInit {
       next: ()=> console.log('la dispo est switchée'),
       error: (err)=> console.log('erreur dans le switch', err),
       complete: () => {
-        this.getProducts();
+        this.getProducts(this.filters);
       }
     });
   }
@@ -90,6 +90,17 @@ export class ProdsComponent implements OnInit {
     this.prodasup.name = p.name;
     this.prodasup.id = p.id;
     this.prodasup.deleted = false;
+  }
+
+  getPriceRange(minmax:any) {
+    this.filters.prix = minmax.value;
+    this.getProducts(this.filters);
+  }
+
+  resetPriceForm() {
+    this.filters.prix.min = 0;
+    this.filters.prix.max = 0;
+    this.getProducts(this.filters);
   }
 
 }

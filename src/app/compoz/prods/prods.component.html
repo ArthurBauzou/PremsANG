@@ -1,23 +1,64 @@
+
+<!-- SIDEBAR : FILTRES -->
 <div class="d-flex">
   <div class="filterBar flex-shrink-0 d-none d-md-flex flex-column">
-    <p role="button"
+    <!-- FILTRES TYPE -->
+    <div role="button"
     [ngClass]='{"filtreActif": filters.type.legume}'
     (click)='filters.type.legume=!filters.type.legume;getProducts(filters)'>
       <i class="fa-solid fa-carrot"></i>
-    </p>
-    <p role="button"
+    </div>
+    <div role="button"
     [ngClass]='{"filtreActif": filters.type.fruit}'
     (click)='filters.type.fruit=!filters.type.fruit;getProducts(filters)'>
       <i class="fa-solid fa-lemon"></i>
-    </p>
-    <p role="button"
+    </div>
+    <div role="button"
     [ngClass]='{"filtreActif": filters.type.autre}'
     (click)='filters.type.autre=!filters.type.autre;getProducts(filters)'>
-      <i class="fa-solid fa-bacterium" style="position: relative; left: -2px"></i>
-    </p>
+      <i class="fa-solid fa-guitar" style="position: relative; left: -2px"></i>
+    </div>
+    <!-- FILTRE PRIX -->
+    <div role="button"
+    [ngClass]='{"filtreActif": filters.prix.min!=0||filters.prix.max!=0}'
+    (click)='priceFilter.hidden=!priceFilter.hidden'>
+      <i class="fa-solid fa-euro-sign"></i>
+    </div>
+    <div id="hack1" style="position: relative">
+      <div #priceFilter hidden>
+        <form #priceForm="ngForm" id="minmaxPopup"
+        (ngSubmit)="getPriceRange(priceForm);priceFilter.hidden=true"
+        class="shadow">
+          <div>
+            <label for="#priceFilterMin">Min</label>
+            <input type="number" id="priceFilterMin"
+            ngModel="{{filters.prix.min}}" name="min"
+            step="0.5">
+          </div>
+          <div>
+            <label for="#priceFilterMax">Max</label>
+            <input type="number" id="priceFilterMax"
+            ngModel="{{filters.prix.max}}" name="max"
+            step="0.5">
+          </div>
+          <div>
+            <button class="m-2 btn btn-secondary" type="button" (click)="resetPriceForm();priceFilter.hidden=true">
+              <i class="fa-solid fa-circle-xmark"></i>
+            </button>
+            <button class="m-2 btn btn-primary" type="submit" for="minmaxPopup">
+              <i class="fa-solid fa-circle-check"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
+
+  <!-- MAIN WINDOW : LES PRODUITS -->
   <div class="container row">
-    <h2 class="text-center py-4">Les produits</h2>
+    <!-- s’il y a des résultats -->
+    <h2 class="text-center py-4" *ngIf="prods.length!=0">Les produits</h2>
+    <h2 class="text-center py-4" *ngIf="prods.length==0">Il n’y a aucun produits correspondant à vos critères, navré.</h2>
     <div class="col-lg-4 col-md-6 mb-4" *ngFor="let p of prods">
       <div style="height: 12rem; position: relative">
         <img src="{{p.image}}" style="padding: 0.5em; border-radius: 1em; object-fit: cover; width: 100%; height: 100%; object-position: center;">
@@ -55,16 +96,10 @@
   </div>
 </div>
 
-<div class="row py-4">
-  <div class="col-md-4"></div>
-  <a class="btn btn-outline-primary col-md-4 col-12" routerLink="/ajouter-un-produit">Ajouter un Produit</a>
-  <div class="col-md-4"></div>
-</div>
-
 
 <!-- MODAL EDITION -->
 <div class="modal" tabindex="-1" id="editModal">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Éditer le produit</h5>

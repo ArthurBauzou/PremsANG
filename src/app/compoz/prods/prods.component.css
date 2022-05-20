@@ -47,7 +47,7 @@
     padding-top: 0.6em;
 }
 
-.filterBar p {
+.filterBar > div {
     border: 2px solid #212529;
     width: 1.7em;
     border-radius: 50%;
@@ -55,15 +55,65 @@
     padding-bottom: 0.15em;
     line-height: 1.4em;
     transition: 0.2s;
+    margin-bottom: 0.5em;
 }
 
-.filterBar p:hover {
+.filterBar > div:hover {
     border-color: rgb(194, 194, 194);
-    /* color: rgb(245, 172, 217); */
 }
 
 .filtreActif {
     color: white;
-
 }
+
+#hack1 {
+    color: #212529;
+}
+#hack1:hover {
+    border-color: #212529;
+}
+#hack1 #minmaxPopup {
+    background-color: #212529;
+    border: 1px solid gray;
+    z-index: 2;
+    position: absolute;
+    font-size: 0.7em;
+    top: -3.7em;
+    left: 3em;
+    border-radius: 0.4em;
+    color: white;
+    padding: 0.5em;
+}
+#hack1 #minmaxPopup div {
+    display: flex;
+    align-items: center;
+}
+#hack1 #minmaxPopup label {
+    width: 3em;
+    padding-left: 0.5em;
+}
+#hack1 #minmaxPopup input {
+    -moz-appearance: textfield;
+    appearance: textfield;
+    margin: 0;
+    padding-left: 0.5em;
+    border: none;
+    background-color:rgba(218, 218, 218, 0.9);
+    border-radius: 0.3em;
+    line-height: 1.3em;
+    margin: 0.3em;
+    width: 4em;
+}
+#minmaxPopup button {
+    width: 100%;
+    height: 1.4em;
+    font-size: 1.3em;
+    padding: 0;
+    line-height: 1.2em;
+}
+#minmaxPopup button i {
+    margin: 0;
+    padding: 0;
+}
+
 

@@ -14,10 +14,8 @@ export class ProdsService {
     for (const type in filters.type) {
       if (filters.type[type]==true) {params += `type=${type}&`}
     }
-    for (const minmax in filters.prix) {
-      if (filters.prix[minmax]!=0) {}
-    }
-
+    if (filters.prix.min!=0) {params += `price_gte=${filters.prix.min}&`}
+    if (filters.prix.max!=0) {params += `price_lte=${filters.prix.max}&`}
     return this.http.get("http://localhost:3000/produits"+params)
   }
 
