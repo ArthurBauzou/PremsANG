@@ -11,21 +11,30 @@ export class ProdsComponent implements OnInit {
   prods: any;
   prodasup: any = {};
   prodedit: any = {};
+  typeFilter:any = {
+    "legume": true,
+    "fruit": true,
+    "autre": true
+  };
 
   constructor(
     private prServ : ProdsService
     ) { }
 
   ngOnInit(): void {
-    this.getProducts();
+    this.getProducts(this.typeFilter);
   }
   
-  getProducts(){
-    this.prServ.getProds().subscribe({
+  getProducts(param?:any){
+    this.prServ.getProds(param).subscribe({
       next: (d) => this.prods = d,
       error: (e) => console.log("err",e),
       complete: () => {for (let p of this.prods) {p.show = false}}
     });
+  }
+
+  toggleTypeFilter(type:string) {
+    if (this.typeFilter.includes(type)) {this.typeFilter}
   }
 
   delProduit(id:number){

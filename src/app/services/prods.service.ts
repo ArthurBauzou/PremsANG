@@ -9,8 +9,15 @@ export class ProdsService {
 
   constructor(private http : HttpClient) { }
 
-  getProds() {
-    return this.http.get("http://localhost:3000/produits")
+  getProds(typeFilter?: any) {
+    let params: string = ""
+    if (typeFilter) { params += "?" }
+    // filtres de type
+    for (const type in typeFilter) {
+      if (typeFilter[type]==true) {params += `type=${type}&`}
+    }
+
+    return this.http.get("http://localhost:3000/produits"+params)
   }
 
   addProd(produit:any) {
