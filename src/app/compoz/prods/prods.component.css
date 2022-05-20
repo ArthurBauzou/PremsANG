@@ -40,7 +40,7 @@
 .filterBar {
     color: rgb(165, 165, 165);
     background-color: #212529;
-    width: 2em;
+    width: 2.2em;
     min-height: 100%;
     font-size: 1.6em;
     padding: 0.18em;
@@ -48,8 +48,8 @@
 }
 
 .filterBar p {
-    border: 1px solid #212529;
-    min-width: 1em;
+    border: 2px solid #212529;
+    width: 1.7em;
     border-radius: 50%;
     padding-left:0.3em;
     padding-bottom: 0.15em;
@@ -58,7 +58,7 @@
 }
 
 .filterBar p:hover {
-    border-color: white;
+    border-color: rgb(194, 194, 194);
     /* color: rgb(245, 172, 217); */
 }
 

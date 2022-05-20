@@ -9,12 +9,13 @@ export class ProdsService {
 
   constructor(private http : HttpClient) { }
 
-  getProds(typeFilter?: any) {
-    let params: string = ""
-    if (typeFilter) { params += "?" }
-    // filtres de type
-    for (const type in typeFilter) {
-      if (typeFilter[type]==true) {params += `type=${type}&`}
+  getProds(filters: any) {
+    let params: string = "?"
+    for (const type in filters.type) {
+      if (filters.type[type]==true) {params += `type=${type}&`}
+    }
+    for (const minmax in filters.prix) {
+      if (filters.prix[minmax]!=0) {}
     }
 
     return this.http.get("http://localhost:3000/produits"+params)

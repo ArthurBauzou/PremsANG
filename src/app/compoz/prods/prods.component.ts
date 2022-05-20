@@ -11,10 +11,16 @@ export class ProdsComponent implements OnInit {
   prods: any;
   prodasup: any = {};
   prodedit: any = {};
-  typeFilter:any = {
-    "legume": true,
-    "fruit": true,
-    "autre": true
+  filters:any = {
+    "type": {
+      "legume": true,
+      "fruit": true,
+      "autre": true
+    },
+    "prix": {
+      "min": 0,
+      "max": 0,
+    }
   };
 
   constructor(
@@ -22,7 +28,7 @@ export class ProdsComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
-    this.getProducts(this.typeFilter);
+    this.getProducts(this.filters);
   }
   
   getProducts(param?:any){
@@ -31,10 +37,6 @@ export class ProdsComponent implements OnInit {
       error: (e) => console.log("err",e),
       complete: () => {for (let p of this.prods) {p.show = false}}
     });
-  }
-
-  toggleTypeFilter(type:string) {
-    if (this.typeFilter.includes(type)) {this.typeFilter}
   }
 
   delProduit(id:number){

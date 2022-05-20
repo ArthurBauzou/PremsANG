@@ -7,7 +7,7 @@
       "descr": "La banane est le fruit ou la baie dérivant de l’inflorescence du bananier. Les bananes sont des fruits très généralement stériles issus de variétés domestiquées. Seuls les fruits des bananiers sauvages et de quelques cultivars domestiques contiennent des graines.",
       "price": 1.8,
       "id": 1,
-      "dispo": false
+      "dispo": true
     },
     {
       "id": 2,
@@ -73,13 +73,13 @@
       "dispo": true
     },
     {
-      "type": "legume",
       "name": "Fenouil",
+      "type": "legume",
       "image": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Fenouil.jpg",
       "descr": "Le Fenouil ou Fenouil commun (Foeniculum vulgare, syn. Foeniculum officinale) est une plante généralement vivace mais parfois bisannuelle de la famille des apiacées (ombellifères). Les variétés cultivées de cette espèce de fenouil sont utilisées en alimentation pour le renflement bulbeux et charnu de leurs feuilles imbriquées les unes dans les autres. Ce n'est pas un bulbe véritable (comme l'oignon).",
-      "price": "2.2",
-      "id": 9,
-      "dispo": true
+      "price": 2,
+      "dispo": true,
+      "id": 9
     },
     {
       "name": "Kiwi",
@@ -98,6 +98,24 @@
       "price": 2.9,
       "dispo": true,
       "id": 11
+    },
+    {
+      "type": "autre",
+      "name": "Grand bi",
+      "image": "https://chateaudecompiegne.fr/sites/compiegne/files/mvt_grand-bi_renard_07-521542.jpg",
+      "descr": "Le grand bi est un type de bicyclette qui possède une roue avant d'un très grand diamètre et une roue arrière beaucoup plus petite. L'intérêt de la grande roue avant est d'augmenter la distance parcourue pour un tour de pédale. Le grand bi apparaît au début des années 1870 et connaît une grande popularité parmi les sportifs pendant les années 1870 et 1880, mais est relativement peu utilisé par les amateurs et le public à cause de sa dangerosité. Il est supplanté à partir de 1890 par la bicyclette de sécurité, ancêtre de la bicyclette moderne. ",
+      "price": "13",
+      "dispo": true,
+      "id": 12
+    },
+    {
+      "type": "autre",
+      "name": "Accordéon",
+      "image": "https://fastlane.fr/wp-content/uploads/sampler-instrument-accordeon.jpg",
+      "descr": "L'accordéon est un instrument de musique à vent de la famille des bois. Le nom d'accordéon regroupe une famille d'instruments à clavier, polyphonique, utilisant des anches libres excitées par un vent variable fourni par le soufflet actionné par le musicien. Ces différents instruments peuvent être de factures très différentes. ",
+      "price": "8.8",
+      "dispo": true,
+      "id": 13
     }
   ]
 }

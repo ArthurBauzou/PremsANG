@@ -1,18 +1,18 @@
 <div class="d-flex">
   <div class="filterBar flex-shrink-0 d-none d-md-flex flex-column">
     <p role="button"
-    [ngClass]='{"filtreActif": typeFilter.legume}'
-    (click)='typeFilter.legume=!typeFilter.legume'>
+    [ngClass]='{"filtreActif": filters.type.legume}'
+    (click)='filters.type.legume=!filters.type.legume;getProducts(filters)'>
       <i class="fa-solid fa-carrot"></i>
     </p>
     <p role="button"
-    [ngClass]='{"filtreActif": typeFilter.fruit}'
-    (click)='typeFilter.fruit=!typeFilter.fruit'>
+    [ngClass]='{"filtreActif": filters.type.fruit}'
+    (click)='filters.type.fruit=!filters.type.fruit;getProducts(filters)'>
       <i class="fa-solid fa-lemon"></i>
     </p>
     <p role="button"
-    [ngClass]='{"filtreActif": typeFilter.autre}'
-    (click)='typeFilter.autre=!typeFilter.autre'>
+    [ngClass]='{"filtreActif": filters.type.autre}'
+    (click)='filters.type.autre=!filters.type.autre;getProducts(filters)'>
       <i class="fa-solid fa-bacterium" style="position: relative; left: -2px"></i>
     </p>
   </div>
