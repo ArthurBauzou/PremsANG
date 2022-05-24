@@ -1,0 +1,9 @@
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+  token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkFydGh1ciIsImlhdCI6MTUxNjIzOTAyMiwicm9sZXMiOiJBRE1JTiIsImVtYWlsIjoidG90QGhvdG1haWwuY29tIn0.FEv6Wmo8xhTlUR6vz1QRShXvD0L5KyvImMxvJmoh42ceyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkFydGh1ciIsImlhdCI6MTUxNjIzOTAyMiwicm9sZXMiOiJBRE1JTiIsImVtYWlsIjoidG90QGhvdG1haWwuY29tIn0.FEv6Wmo8xhTlUR6vz1QRShXvD0L5KyvImMxvJmoh42c"
+  constructor() { }
+}

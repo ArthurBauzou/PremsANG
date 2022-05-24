@@ -1,0 +1,25 @@
+<div class="panier-btn">
+  <div role="button" class="navbar-brand"  (click)="panierVisible = !panierVisible">
+    <i class="fa-solid fa-cart-shopping"></i>
+  </div>
+  <div class="panier" *ngIf="panierVisible"> <!-- *ngIf="panierVisible" -->
+    <h4>MON PANIER</h4>
+    <p *ngIf="panier.size==0">Vous n’avez aucun produit dans votre panier</p>
+    <div *ngFor="let p of panier | keyvalue" class="panierItem">
+      <span>{{p.value.name}}</span>
+      <span>{{p.value.price.toFixed(2).replace('.', ',')}}€</span>
+      <span>×</span>
+      <span>{{p.value.nb}}</span>
+      <button (click)='editPanier(p.key, "ajoute")'>
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      <button (click)='editPanier(p.key, "retire")'>
+        <i class="fa-solid fa-minus"></i>
+      </button>
+    </div>
+    <div class="panierTotal" *ngIf="panier.size!=0">
+      <span>TOTAL</span>
+      <span>{{calcTot()}} €</span>
+    </div>
+  </div>
+</div>

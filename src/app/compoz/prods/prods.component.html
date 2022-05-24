@@ -33,20 +33,20 @@
             <label for="#priceFilterMin">Min</label>
             <input type="number" id="priceFilterMin"
             ngModel="{{filters.prix.min}}" name="min"
-            step="0.5">
+            step="0.5" min="0" max="20">
           </div>
           <div>
             <label for="#priceFilterMax">Max</label>
             <input type="number" id="priceFilterMax"
             ngModel="{{filters.prix.max}}" name="max"
-            step="0.5">
+            step="0.5" min="0" max="20">
           </div>
           <div>
             <button class="m-2 btn btn-secondary" type="button" (click)="resetPriceForm();priceFilter.hidden=true">
-              <i class="fa-solid fa-circle-xmark"></i>
+              <i class="fa-solid fa-xmark"></i>
             </button>
             <button class="m-2 btn btn-primary" type="submit" for="minmaxPopup">
-              <i class="fa-solid fa-circle-check"></i>
+              <i class="fa-solid fa-check"></i>
             </button>
           </div>
         </form>
@@ -76,7 +76,14 @@
         </p>
   
         <div class="d-flex">
-          <span class="btn btn-primary me-auto">{{p.price}}€</span>
+          <!-- BOUTON PRIX = AJOUTER AU PANIER -->
+          <span 
+          class="btn btn-primary me-auto" 
+          (click)="ajouterAuPanier(p)"
+          title="ajouter au panier">
+            {{p.price}}€
+          </span>
+          <!-- BOUTON EDITION -->
           <span
           class="btn btn-secondary mx-1"
           data-bs-toggle="modal"
@@ -84,6 +91,7 @@
           (click)="loadProdEdit(p)">
             <i class="fa-solid fa-pen-to-square"></i>
           </span>
+          <!-- BOUTON SUPPRESSION -->
           <span class="btn btn-outline-danger"
           data-bs-toggle="modal"
           data-bs-target="#suprModal"
@@ -218,3 +226,5 @@
     </div>
   </div>
 </div>
+
+<!-- <app-alerte [message]="alerte"></app-alerte> -->

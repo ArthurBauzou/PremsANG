@@ -1,4 +1,5 @@
 import { Component, OnInit} from '@angular/core';
+import { PanierService } from 'src/app/services/panier.service';
 import { ProdsService } from 'src/app/services/prods.service';
 
 @Component({
@@ -22,17 +23,19 @@ export class ProdsComponent implements OnInit {
       "max": 0
     }
   };
+  alerte: any = {};
 
   constructor(
-    private prServ : ProdsService
-    ) { }
+    private _prodsService : ProdsService,
+    private _panierService : PanierService
+    ) {}
 
   ngOnInit(): void {
     this.getProducts(this.filters);
   }
   
   getProducts(param?:any){
-    this.prServ.getProds(param).subscribe({
+    this._prodsService.getProds(param).subscribe({
       next: (d) => this.prods = d,
       error: (e) => console.log("err",e),
       complete: () => {for (let p of this.prods) {p.show = false}}
@@ -40,7 +43,7 @@ export class ProdsComponent implements OnInit {
   }
 
   delProduit(id:number){
-    this.prServ.delProd(id).subscribe({
+    this._prodsService.delProd(id).subscribe({
       next: () => console.log(`L’objet avec id = ${id} a été supprimé`),
       error: (err) => console.log("erreur lors de la suppression", err),
       complete: () => { 
@@ -53,7 +56,7 @@ export class ProdsComponent implements OnInit {
   editProd(id:number, prEd:any) {
     let newData = prEd.value;
     newData.dispo = this.prodedit.dispo;
-    this.prServ.updateProd(id, newData).subscribe({
+    this._prodsService.updateProd(id, newData).subscribe({
       next: ()=> console.log('bien édité le produit '+newData.name+' avec id = '+id),
       error: (err) => console.log("erreur lors de l’édition", err),
       complete: () => { 
@@ -65,7 +68,7 @@ export class ProdsComponent implements OnInit {
 
   switchDispo(id:number, disp:boolean) {
     let data = {dispo: !disp}
-    this.prServ.patchProd(id, data).subscribe({
+    this._prodsService.patchProd(id, data).subscribe({
       next: ()=> console.log('la dispo est switchée'),
       error: (err)=> console.log('erreur dans le switch', err),
       complete: () => {
@@ -102,5 +105,7 @@ export class ProdsComponent implements OnInit {
     this.filters.prix.max = 0;
     this.getProducts(this.filters);
   }
+
+  ajouterAuPanier(p:any) { this._panierService.prodAjoute.emit(p) }
 
 }

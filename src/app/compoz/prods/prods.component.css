@@ -1,3 +1,4 @@
+/* carte produit */
 .descrText {
     font-size: small;
     overflow: hidden;
@@ -9,7 +10,6 @@
     font-size: small;
     white-space: normal;
 }
-
 .btnDetail {
     position: absolute;
     right: 16px;
@@ -20,12 +20,6 @@
     cursor: pointer;
     color: gray;
 }
-
-.badnews i {
-    color: rgb(85, 55, 55);
-    padding: 1rem;
-}
-
 .dispoToggle {
     position: absolute;
     bottom: 15px;
@@ -37,6 +31,8 @@
     background-color: rgba(255, 242, 224, 0.9);
 }
 
+
+/* barre de filtres */
 .filterBar {
     color: rgb(165, 165, 165);
     background-color: #212529;
@@ -46,7 +42,6 @@
     padding: 0.18em;
     padding-top: 0.6em;
 }
-
 .filterBar > div {
     border: 2px solid #212529;
     width: 1.7em;
@@ -57,15 +52,12 @@
     transition: 0.2s;
     margin-bottom: 0.5em;
 }
-
 .filterBar > div:hover {
     border-color: rgb(194, 194, 194);
 }
-
 .filtreActif {
     color: white;
 }
-
 #hack1 {
     color: #212529;
 }
@@ -98,11 +90,12 @@
     margin: 0;
     padding-left: 0.5em;
     border: none;
-    background-color:rgba(218, 218, 218, 0.9);
+    background-color: #414b54;
     border-radius: 0.3em;
-    line-height: 1.3em;
+    line-height: 1.6em;
     margin: 0.3em;
-    width: 4em;
+    width: 3em;
+    color: white;
 }
 #minmaxPopup button {
     width: 100%;
