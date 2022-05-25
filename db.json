@@ -135,5 +135,23 @@
       "dispo": true,
       "id": 15
     }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Arthur",
+      "password": "superpoireau",
+      "avatar": "./assets/images/avatars/blubAvatar.jpg",
+      "email": "arthurbauzou@gmel.com",
+      "roles": ["admin", "peon"]
+    },
+    {
+      "id": 2,
+      "name": "Gary",
+      "password": "blblblblbl",
+      "avatar": "./assets/images/avatars/garyVatar.png",
+      "email": "seasnail77@gmel.com",
+      "roles": ["peon", "escargot"]
+    }
   ]
 }
