@@ -4,6 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
-  token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkFydGh1ciIsImlhdCI6MTUxNjIzOTAyMiwicm9sZXMiOiJBRE1JTiIsImVtYWlsIjoidG90QGhvdG1haWwuY29tIn0.FEv6Wmo8xhTlUR6vz1QRShXvD0L5KyvImMxvJmoh42ceyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkFydGh1ciIsImlhdCI6MTUxNjIzOTAyMiwicm9sZXMiOiJBRE1JTiIsImVtYWlsIjoidG90QGhvdG1haWwuY29tIn0.FEv6Wmo8xhTlUR6vz1QRShXvD0L5KyvImMxvJmoh42c"
+  token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdG5hbWUiOiJBcnRodXIiLCJsYXN0bmFtZSI6IkJhdXpvdSIsInJvbGVzIjpbIkFETUlOIiwiVVNFUiJdLCJlbWFpbCI6ImFydGh1cmJhdXpvdUBnbW9sLmNvbSJ9.5USJeExkuJFjL0ywPNLGC2mrelG6YAhrsdxJ3t3zPWA"
   constructor() { }
 }

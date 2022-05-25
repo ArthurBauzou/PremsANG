@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -25,7 +26,7 @@ import { PanierComponent } from './compoz/panier/panier.component';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [{ provide: JWT_OPTIONS, useValue: JWT_OPTIONS }, JwtHelperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
