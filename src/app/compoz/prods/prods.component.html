@@ -1,6 +1,7 @@
 
-<!-- SIDEBAR : FILTRES -->
-<div class="d-flex">
+<div class="row">
+
+  <!-- SIDEBAR : FILTRES -->
   <div class="filterBar flex-shrink-0 d-none d-md-flex flex-column">
     <!-- FILTRES TYPE -->
     <div role="button"
@@ -55,8 +56,7 @@
   </div>
 
   <!-- MAIN WINDOW : LES PRODUITS -->
-  <div class="container row">
-    <!-- s’il y a des résultats -->
+  <div class="row col-11 ms-2">
     <h2 class="text-center py-4" *ngIf="prods.length!=0">Les produits</h2>
     <h2 class="text-center py-4" *ngIf="prods.length==0">Il n’y a aucun produits correspondant à vos critères, navré.</h2>
     <div class="col-lg-4 col-md-6 mb-4" *ngFor="let p of prods">
@@ -67,15 +67,15 @@
           <span *ngIf="!p.dispo"> Épuisé </span>
         </div>
       </div>
-      <div class="card-body pt-1" style="position: relative;">
-        <h5 class="card-title col">{{p.name}}</h5>
-        <p [ngClass]="!p.show? 'descrText' : 'descrTextShow'">{{p.descr}}</p>
+      <div class="card-body py-0" style="position: relative;">
+        <h5 class="card-title col my-0">{{p.name}}</h5>
+        <p [ngClass]="!p.show? 'descrText' : 'descrTextShow'" class="mb-2 mt-1">{{p.descr}}</p>
         <p class="btnDetail" (click)="p.show = !p.show">
           <i class="fa-solid fa-square-caret-down" *ngIf="!p.show"></i>
           <i class="fa-solid fa-square-caret-up" *ngIf="p.show"></i>
         </p>
   
-        <div class="d-flex">
+        <div class="d-flex py-0">
           <!-- BOUTON PRIX = AJOUTER AU PANIER -->
           <span 
           class="btn btn-primary me-auto" 

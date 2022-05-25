@@ -36,11 +36,15 @@
 .filterBar {
     color: rgb(165, 165, 165);
     background-color: #212529;
-    width: 2.2em;
-    min-height: 100%;
+    width: 64px;
+    min-height: 100vh;
     font-size: 1.6em;
-    padding: 0.18em;
+    padding: 16px;
     padding-top: 0.6em;
+    position: sticky;
+    top: 0px;
+    z-index: 3;
+    align-self: flex-start;
 }
 .filterBar > div {
     border: 2px solid #212529;
@@ -67,11 +71,11 @@
 #hack1 #minmaxPopup {
     background-color: #212529;
     border: 1px solid gray;
-    z-index: 2;
+    z-index: 4;
     position: absolute;
-    font-size: 0.7em;
+    font-size: 0.8rem;
     top: -3.7em;
-    left: 3em;
+    left: 32px;
     border-radius: 0.4em;
     color: white;
     padding: 0.5em;
