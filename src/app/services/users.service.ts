@@ -1,21 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsersService {
 
-  constructor(
-    private _http: HttpClient
-  ) { }
+  constructor( private _http: HttpClient ) { }
 
   getAllUsers() {
     return this._http.get("http://localhost:3000/users")
   }
 
-  getUser(id:number) {
-    return this._http.get("http://localhost:3000/users/"+id)
+  checkUser(name:string) {
+    return this._http.get("http://localhost:3000/users?name="+name)
   }
-
+  
 }

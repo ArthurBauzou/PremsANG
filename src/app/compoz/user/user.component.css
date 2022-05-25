@@ -6,12 +6,27 @@ div.user-btn {
 }
 
 .user-connect {
+    z-index: 4;
     border: 1px solid gray;
-    padding: 12px;
+    padding: 24px 12px;
     margin-top: 18px;
-    min-width: 330px;
+    width: 200px;
     background-color: #212529;
     position: absolute;
-    top: 34px;
-    right: -6px;
+    top: 48px;
+    right: 12px;
+    border-radius: 4px;
+    color: white;
+}
+.user-connect button {
+    float: right;
+    border: none;
+    /* background-color: greenyellow; */
+}
+
+.loginput {
+    display: flex;
+    flex-flow: column nowrap;
+    margin-bottom: 12px;
+    padding: 0px 12px;
 }

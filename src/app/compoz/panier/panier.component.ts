@@ -9,15 +9,6 @@ import { PanierService } from 'src/app/services/panier.service';
 
 export class PanierComponent implements OnInit {
 
-  // panier: any = [
-  //   {
-  //     "name": "Banane",
-  //     "price": 0.5,
-  //     "id": 1,
-  //     "nb": 5
-  //   }
-  // ];
-  // panier: any = [];
   panier = new Map;
   panierVisible: boolean = false;
   panierTotal: number = 0;
@@ -26,19 +17,22 @@ export class PanierComponent implements OnInit {
   constructor( private _panierServ: PanierService ) {}
 
   ngOnInit(): void {
-    this._panierServ.prodAjoute.subscribe(
-      (p) => {
-        if (!this.panier.get(p.id)) {
-          this.panier.set(p.id, {
-            "name": p.name,
-            "price": p.price,
-            "nb": 1
-          })
-        } else {
-          this.panier.get(p.id).nb += 1
-        }
-      }
+    this._panierServ.ajouteAuPanier.subscribe(
+      (p) => this.ajouterProdPanier(p),
+      (err) => console.log(err)
     )
+  }
+
+  ajouterProdPanier (p:any) {
+    if (!this.panier.get(p.id)) {
+      this.panier.set(p.id, {
+        "name": p.name,
+        "price": p.price,
+        "nb": 1
+      })
+    } else {
+      this.panier.get(p.id).nb += 1
+    }
   }
 
   editPanier(id:number, ope:string) {

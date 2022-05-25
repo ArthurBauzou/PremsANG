@@ -106,6 +106,6 @@ export class ProdsComponent implements OnInit {
     this.getProducts(this.filters);
   }
 
-  ajouterAuPanier(p:any) { this._panierService.prodAjoute.emit(p) }
+  ajouterAuPanier(p:any) { this._panierService.ajouteAuPanier.emit(p) }
 
 }

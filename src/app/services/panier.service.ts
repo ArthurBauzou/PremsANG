@@ -5,7 +5,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 })
 export class PanierService {
 
-  prodAjoute = new EventEmitter();
+  ajouteAuPanier = new EventEmitter();
 
   constructor() { }
 
