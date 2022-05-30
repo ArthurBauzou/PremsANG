@@ -9,11 +9,12 @@ div.panier-btn {
     margin-top: 18px;
     min-width: 330px;
     background-color: #212529;
-    z-index: 2;
+    z-index: 10;
     position: absolute;
-    top: 34px;
-    right: -6px;
+    top: 50px;
+    right: -50px;
     border-radius: 4px;
+    transition: 0.2s;
 }
 
 h4 {
@@ -51,4 +52,9 @@ h4 {
     margin-top: 12px;
     padding-top: 8px;
     font-weight: bold;
+}
+
+.hidd {
+    /* display: none; */
+    top: -500px;
 }

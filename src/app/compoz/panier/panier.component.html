@@ -1,8 +1,8 @@
-<div class="panier-btn">
-  <div role="button" class="navbar-brand"  (click)="panierVisible = !panierVisible">
+<div class="panier-btn hid-container">
+  <div role="button" class="navbar-brand"  (click)="panierWin.classList.toggle('hidd')">
     <i class="fa-solid fa-cart-shopping"></i>
   </div>
-  <div class="panier" *ngIf="panierVisible">
+  <div class="panier hid-element hidd" #panierWin>
     <h4>MON PANIER</h4>
     <p *ngIf="panier.size==0">Vous n’avez aucun produit dans votre panier</p>
     <div *ngFor="let p of panier | keyvalue" class="panierItem">

@@ -14,14 +14,18 @@ div.user-btn {
     background-color: #212529;
     position: absolute;
     top: 48px;
-    right: 12px;
+    right: 0px;
     border-radius: 4px;
     color: white;
+    transition: 0.2s;
 }
 .user-connect button {
     float: right;
     border: none;
-    /* background-color: greenyellow; */
+}
+
+.hidd {
+    right: -250px;
 }
 
 .loginput {

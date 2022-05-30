@@ -13,13 +13,7 @@ export class UserComponent implements OnInit {
   showprofil: boolean = false;
   errMsg: string = '';
 
-  user: User = {
-    name: '',
-    password: '',
-    avatar: '',
-    email: '',
-    roles: []
-  };
+  user = new User('','','','',[])
 
   constructor(
     private _usersServ: UsersService
@@ -28,22 +22,26 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  togl(el:any) {
+    if (el.classList.contains('hidd')) {
+      el.classList.remove('hidd')
+    }
+  }
+
   logUser(loginfo:any) {
     this.errMsg = ""
     let nm = loginfo.value.name
     let pwd = loginfo.value.password
     if (nm != '' || pwd != '') {
-      this._usersServ.checkUser(nm).subscribe({
-        next: (u:any) => {
-          console.log(u)
+      this._usersServ.checkUser(nm).subscribe((u:any) => {
           if (u.length != 0) {
             if (pwd == u[0].password) {
               this.user = u[0]
+              this.showconnect = false
             }
             else { this.errMsg = "mauvais mot de passe" }
           }
           else { this.errMsg = "l’utilisateur n’existe pas" }
-        }
       });
     }
     else { this.errMsg = "veuillez renseigner les champs" }

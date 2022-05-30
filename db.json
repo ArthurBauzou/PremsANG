@@ -143,7 +143,10 @@
       "password": "superpoireau",
       "avatar": "./assets/images/avatars/blubAvatar.jpg",
       "email": "arthurbauzou@gmel.com",
-      "roles": ["admin", "peon"]
+      "roles": [
+        "admin",
+        "peon"
+      ]
     },
     {
       "id": 2,
@@ -151,7 +154,10 @@
       "password": "blblblblbl",
       "avatar": "./assets/images/avatars/garyVatar.png",
       "email": "seasnail77@gmel.com",
-      "roles": ["peon", "escargot"]
+      "roles": [
+        "peon",
+        "escargot"
+      ]
     }
   ]
 }

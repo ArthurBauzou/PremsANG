@@ -14,7 +14,7 @@ export class UsersService {
   }
 
   checkUser(name:string) {
-    return this._http.get("http://localhost:3000/users?name="+name)
+    return this._http.get("http://localhost:3000/users?name_like="+name)
   }
   
 }

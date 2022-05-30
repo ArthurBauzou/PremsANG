@@ -63,33 +63,26 @@
 .filtreActif {
     color: white;
 }
-#hack1 {
-    color: #212529;
-}
-#hack1:hover {
-    border-color: #212529;
-}
-#hack1 #minmaxPopup {
+#minmaxPopup {
     background-color: #212529;
     border: 1px solid gray;
     z-index: 4;
     position: absolute;
     font-size: 0.8rem;
-    top: -3.7em;
     left: 32px;
     border-radius: 0.4em;
     color: white;
     padding: 0.5em;
 }
-#hack1 #minmaxPopup div {
+#minmaxPopup div {
     display: flex;
     align-items: center;
 }
-#hack1 #minmaxPopup label {
+#minmaxPopup label {
     width: 3em;
     padding-left: 0.5em;
 }
-#hack1 #minmaxPopup input {
+#minmaxPopup input {
     -moz-appearance: textfield;
     appearance: textfield;
     margin: 0;
@@ -114,4 +107,7 @@
     padding: 0;
 }
 
+.hidd {
+    display: none;
+}
 

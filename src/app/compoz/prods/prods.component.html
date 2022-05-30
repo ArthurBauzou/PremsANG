@@ -20,15 +20,16 @@
       <i class="fa-solid fa-guitar" style="position: relative; left: -2px"></i>
     </div>
     <!-- FILTRE PRIX -->
-    <div role="button"
-    [ngClass]='{"filtreActif": filters.prix.min!=0||filters.prix.max!=0}'
-    (click)='priceFilter.hidden=!priceFilter.hidden'>
-      <i class="fa-solid fa-euro-sign"></i>
-    </div>
-    <div id="hack1" style="position: relative">
-      <div #priceFilter hidden>
-        <form #priceForm="ngForm" id="minmaxPopup"
-        (ngSubmit)="getPriceRange(priceForm);priceFilter.hidden=true"
+    <div class="hid-container" style="position: relative">
+      <div role="button"
+      [ngClass]='{"filtreActif": filters.prix.min!=0||filters.prix.max!=0}'
+      (click)='priceFilter.classList.toggle("hidd")'>
+        <i class="fa-solid fa-euro-sign"></i>
+      </div>
+
+      <div #priceFilter class="hid-element hidd" id="minmaxPopup">
+        <form #priceForm="ngForm"
+        (ngSubmit)="getPriceRange(priceForm);priceFilter.classList.add('hidd')"
         class="shadow">
           <div>
             <label for="#priceFilterMin">Min</label>
@@ -43,7 +44,8 @@
             step="0.5" min="0" max="20">
           </div>
           <div>
-            <button class="m-2 btn btn-secondary" type="button" (click)="resetPriceForm();priceFilter.hidden=true">
+            <button class="m-2 btn btn-secondary" type="button" 
+            (click)="resetPriceForm();priceFilter.classList.add('hidd')">
               <i class="fa-solid fa-xmark"></i>
             </button>
             <button class="m-2 btn btn-primary" type="submit" for="minmaxPopup">
@@ -52,11 +54,12 @@
           </div>
         </form>
       </div>
+
     </div>
   </div>
 
   <!-- MAIN WINDOW : LES PRODUITS -->
-  <div class="row col-11 ms-2">
+  <div class="row col-11 ms-2" style="align-content: flex-start;">
     <h2 class="text-center py-4" *ngIf="prods.length!=0">Les produits</h2>
     <h2 class="text-center py-4" *ngIf="prods.length==0">Il n’y a aucun produits correspondant à vos critères, navré.</h2>
     <div class="col-lg-4 col-md-6 mb-4" *ngFor="let p of prods">
@@ -78,7 +81,7 @@
         <div class="d-flex py-0">
           <!-- BOUTON PRIX = AJOUTER AU PANIER -->
           <span 
-          class="btn btn-primary me-auto" 
+          class="btn btn-primary me-auto nohidd" 
           (click)="ajouterAuPanier(p)"
           title="ajouter au panier">
             {{p.price}}€
