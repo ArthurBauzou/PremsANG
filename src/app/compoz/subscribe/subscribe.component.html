@@ -1,10 +1,18 @@
-<div class="container col-6 mt-4">
+<div class="container col-md-6 mt-4">
   <form [formGroup]="subForm" (ngSubmit)="register()">
     <h2 class="mb-4">Qui êtes vous ?</h2>
+    <!-- NAME -->
     <div class="form-floating mb-3" >
-      <input type="email" class="form-control" id="subName" formControlName="name">
+      <input type="text" class="form-control" id="subName" formControlName="name">
       <label for="subName" class="form-label">Nom</label>
+      <div *ngIf="subForm.get('name')?.touched" class="errmsg">
+        <small *ngIf="subForm.get('name')?.errors?.['pattern']" class="text-danger ps-2">
+          <i class="fa-solid fa-xmark"></i>
+          Votre nom ne peut contenir que des lettres sans accents, des chiffres et l’underscore
+        </small>
+      </div>
     </div>
+    <!-- PASSWORD -->
     <div class="form-floating mb-3">
       <input type="password" class="form-control" id="subPass1" formControlName="password" #pass>
       <label for="subPass1" class="form-label">Mot de passe</label>
@@ -13,22 +21,25 @@
       <input type="password" class="form-control" id="subPass2" formControlName="password2">
       <label for="subPass2" class="form-label">Confirmer le mot de passe</label>
     </div>
+    <!-- MAIL -->
     <div class="form-floating mb-3">
       <input type="text" class="form-control" id="subMail" formControlName="email">
       <label for="subMail" class="form-label">Adresse mail</label>
-      <div class="">veuillez entrer une adresse valide</div>
+      <div *ngIf="subForm.get('email')?.touched" class="errmsg">
+        <small *ngIf="subForm.get('email')?.invalid" class="text-danger ps-2">
+          <i class="fa-solid fa-xmark"></i>veuillez entrer une adresse valide
+        </small>
+      </div>
     </div>
+    <!-- AVATAR -->
     <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="subAvatar" formControlName="avatar" #avatar>
-      <label for="subAvatar" class="form-label">URL de l’avatar</label>
+      <input type="text" class="form-control nocheck" id="subAvatar" formControlName="avatar" #avatar>
+      <label for="subAvatar" class="form-label">Avatar (facultatif)</label>
     </div>
     <div *ngIf="avatar.value">
-      <img
-      src="{{avatar.value}}"
-      style="object-fit: scale-down; width: 100%; height: 250px; object-position: center; border-radius: 2rem"
-      class="mb-3">
+      <img src="{{avatar.value}}" class="mb-3 imgpreview">
     </div>
-
+    <!-- SUBMIT -->
     <button
       [disabled]="!subForm.valid"
       class="btn btn-primary"

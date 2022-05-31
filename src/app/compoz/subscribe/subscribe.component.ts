@@ -11,16 +11,20 @@ export class SubscribeComponent implements OnInit {
   subForm = new FormGroup({
     name: new FormControl(null, [
       Validators.required,
-      Validators.minLength(3)
+      Validators.minLength(3),
+      Validators.pattern('[\\w]+')
     ]),
     password: new FormControl(null, [
       Validators.required,
       Validators.minLength(8)
     ]),
-    password2: new FormControl(),
+    password2: new FormControl(null, [
+      Validators.required
+    ]),
     email: new FormControl(null, [
       Validators.required,
-      Validators.email
+      Validators.pattern('[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}')
+      // Validators.email
     ]),
     avatar: new FormControl()
   })
