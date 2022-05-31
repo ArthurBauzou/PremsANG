@@ -1,12 +1,7 @@
-<!-- <div>
-  <h2>Bienvenue, {{user.firstname}}</h2>
-  <p  *ngFor="let rol of user.roles">Vous avez le rôle {{rol}}</p>
-</div> -->
-
 <div class="bg-secondary w-100" style="height:100vh; padding: 45px 120px">
 
     <div *ngFor="let u of users" class="userContainer m-2">
-      <img src="{{u.avatar}}" alt="" style="width: 120px; height: 120px; object-fit: cover">
+      <img src="{{u.avatar}}" alt="">
       <h4>{{u.name}}</h4>
     </div>
 

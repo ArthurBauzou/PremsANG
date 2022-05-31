@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { User } from 'src/app/models/user.model';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -9,22 +10,24 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class UserComponent implements OnInit {
 
-  showconnect: boolean = false;
-  showprofil: boolean = false;
   errMsg: string = '';
-
   user = new User('','','','',[])
 
+  @ViewChild('logwin') logwin!: ElementRef;
+
   constructor(
+    private _jwtHelper: JwtHelperService,
     private _usersServ: UsersService
   ) { }
-
+  
   ngOnInit(): void {
-  }
-
-  togl(el:any) {
-    if (el.classList.contains('hidd')) {
-      el.classList.remove('hidd')
+    let token: string | null = localStorage.getItem('accessToken')
+    if (token != null) {
+      let tokenClair = this._jwtHelper.decodeToken(token)
+      console.log(`Y’a un token pour ${tokenClair.name}`)
+      this._usersServ.checkUser(tokenClair.name).subscribe((u:any) => {
+        this.user = u[0]
+      })
     }
   }
 
@@ -37,7 +40,15 @@ export class UserComponent implements OnInit {
           if (u.length != 0) {
             if (pwd == u[0].password) {
               this.user = u[0]
-              this.showconnect = false
+
+              // simul token
+              if (this.user.name == "Arthur") {
+                let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQXJ0aHVyIiwiZW1haWwiOiJhcnRodXJiYXV6b3VAZ21lbC5jb20iLCJhdmF0YXIiOiIuL2Fzc2V0cy9pbWFnZXMvYXZhdGFycy9ibHViQXZhdGFyLmpwZyIsInJvbGVzIjpbIkFETUlOIiwiVVNFUiJdfQ.NrXl-IDZueddaFCdWiyLNV-QGblTzRyU_LF761UL2SA';
+                localStorage.setItem('accessToken', token);
+                console.log("token envoyé", token)
+              }
+
+              this.logwin.nativeElement.classList.add('hidd')
             }
             else { this.errMsg = "mauvais mot de passe" }
           }

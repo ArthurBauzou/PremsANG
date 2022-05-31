@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,13 +6,15 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
 
+  ngOnInit(): void {
+
+  }
 
   @HostListener('document:click', ['$event.target'])
   @HostListener('window:keydown.escape')
   hidd(elt:any) {
-    console.log(elt)
     if (elt.classList.contains('nohidd')) {
       return
     }

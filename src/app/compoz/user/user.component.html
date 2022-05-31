@@ -1,15 +1,13 @@
-<div class="user-btn hid-container">
-  <div role="button" *ngIf="!user.name"
+<!-- CONNEXION -->
+<div class="user-btn hid-container" *ngIf="!user.name">
+  <!-- BOUTON -->
+  <div role="button" 
   class="border border-2 border-white rounded-3 py-1 text-center"
   style="width: 36px; height: 36px"
   (click)="logwin.classList.toggle('hidd')">
     <i class="fa-solid fa-user"></i>
   </div>
-  <div role="button" *ngIf="user.name"
-  class="border border-2 border-white rounded-3"
-  style="width: 36px; height: 36px">
-    <img src="{{user.avatar}}" alt="" style="width: 100%; height: 100%; object-fit: cover">
-  </div>
+  <!-- FENÊTRE -->
   <div class="user-connect hid-element hidd" #logwin>
     <h4 class="text-center mb-4">Connexion</h4>
     <form #login="ngForm" (ngSubmit)="logUser(login)">
@@ -22,9 +20,28 @@
         <input type="password" id="userpwd" name="password" ngModel>
         <p class="text-danger">{{errMsg}}</p>
       </div>
-      <button role="submit" class="btn btn-primary">
-        <i class="fa-solid fa-right-to-bracket"></i>
-      </button>
+      <div class="loginput">
+        <button role="submit" class="btn btn-primary">
+          <i class="fa-solid fa-right-to-bracket"></i>
+          <p class="outip">Connexion<span class="arr-down"></span></p>
+        </button>
+      </div>
     </form>
+    <p class="text-center text-small text-secondary mt-4">pas de compte ?</p>
+    <button class="btn btn-primary me-1">créer un compte</button>
+  </div>
+</div>
+<!-- PROFIL -->
+<div class="user-btn hid-container" *ngIf="user.name">
+  <!-- BOUTON PROFIL -->
+  <div role="button"
+  class="border border-2 border-white rounded-3"
+  style="width: 36px; height: 36px"
+  (click)="profwin.classList.toggle('hidd')">
+    <img src="{{user.avatar}}" alt="" style="width: 100%; height: 100%; object-fit: cover">
+  </div>
+  <!-- FENETRE PROFIL -->
+  <div class="user-connect hid-element hidd" #profwin>
+    <p>profil de l’utilisateur {{user.name}}</p>
   </div>
 </div>

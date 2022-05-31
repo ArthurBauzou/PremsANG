@@ -18,16 +18,47 @@ div.user-btn {
     border-radius: 4px;
     color: white;
     transition: 0.2s;
+    display: flex;
+    flex-flow: column nowrap;
 }
 .user-connect button {
-    float: right;
+    position: relative;
     border: none;
+    margin-left: auto;
+    padding: 4px 24px;
+}
+
+.outip {
+    opacity: 0;
+    position: absolute;
+    background-color: white;
+    padding: 8px;
+    /* top: -40px; */
+    bottom: -18px;
+    left: -90px;
+    color: black;
+    font-size: 0.8em;
+    font-weight: 700;
+    border-radius: 10px;
+    transition: 0.1s;
+}
+.arr-down {
+    position: absolute;
+    bottom: 12px;
+    right: -7px;
+    width: 0; 
+    height: 0; 
+    border-left: 8px solid #fff;
+    border-bottom: 6px solid transparent;
+    border-top: 6px solid transparent;
+}
+.user-connect button:hover .outip {
+    opacity: 1;
 }
 
 .hidd {
     right: -250px;
 }
-
 .loginput {
     display: flex;
     flex-flow: column nowrap;

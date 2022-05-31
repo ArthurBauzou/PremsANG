@@ -1,0 +1,17 @@
+.userContainer {
+    position: relative;
+}
+.userContainer img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.userContainer h4 {
+    position: absolute;
+    bottom: 0px;
+    left: 4px;
+    color: white;
+    z-index: 2;
+    font-weight: 600;
+}
