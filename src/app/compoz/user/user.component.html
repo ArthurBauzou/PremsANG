@@ -28,7 +28,7 @@
       </div>
     </form>
     <p class="text-center text-small text-secondary mt-4">pas de compte ?</p>
-    <button class="btn btn-primary me-1">créer un compte</button>
+    <a class="btn btn-primary me-1" href="/inscription">créer un compte</a>
   </div>
 </div>
 <!-- PROFIL -->
@@ -43,5 +43,12 @@
   <!-- FENETRE PROFIL -->
   <div class="user-connect hid-element hidd" #profwin>
     <p>profil de l’utilisateur {{user.name}}</p>
+    <div class="loginput">
+      <button role="button" class="btn btn-danger"
+      (click)="disconnect()">
+        <i class="fa-solid fa-power-off"></i>
+        <p class="outip">Se déconecter<span class="arr-down"></span></p>
+      </button>
+    </div>
   </div>
 </div>

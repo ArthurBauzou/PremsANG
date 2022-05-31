@@ -3,13 +3,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ProdsComponent } from './compoz/prods/prods.component';
 import { HomeComponent } from './compoz/home/home.component';
-import  { AddProdComponent } from './compoz/add-prod/add-prod.component'
+import  { AddProdComponent } from './compoz/add-prod/add-prod.component';
+import  { SubscribeComponent } from './compoz/subscribe/subscribe.component';
 
 const routes: Routes = [
   // { path: '', component: AppComponent, },
   { path: 'produits', component: ProdsComponent },
   { path: '', component: HomeComponent },
-  { path: 'ajouter-un-produit', component: AddProdComponent}
+  { path: 'ajouter-un-produit', component: AddProdComponent},
+  { path: 'inscription', component: SubscribeComponent }
 ];
 
 @NgModule({

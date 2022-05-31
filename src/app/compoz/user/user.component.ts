@@ -14,6 +14,7 @@ export class UserComponent implements OnInit {
   user = new User('','','','',[])
 
   @ViewChild('logwin') logwin!: ElementRef;
+  @ViewChild('profwin') profwin!: ElementRef;
 
   constructor(
     private _jwtHelper: JwtHelperService,
@@ -56,6 +57,12 @@ export class UserComponent implements OnInit {
       });
     }
     else { this.errMsg = "veuillez renseigner les champs" }
+  }
+
+  disconnect() {
+    this.user = new User('','','','',[]);
+    localStorage.removeItem('accessToken');
+    this.profwin.nativeElement.classList.add('hidd');
   }
 
 }
