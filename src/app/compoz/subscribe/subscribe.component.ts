@@ -1,5 +1,7 @@
+import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CustomValidatorsDirective, passwordConfirm } from 'src/app/shared/customValidators.directive';
 
 @Component({
   selector: 'app-subscribe',
@@ -16,18 +18,20 @@ export class SubscribeComponent implements OnInit {
     ]),
     password: new FormControl(null, [
       Validators.required,
-      Validators.minLength(8)
+      Validators.maxLength(30),
+      Validators.pattern('(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}')
     ]),
-    password2: new FormControl(null, [
-      Validators.required
+    confirmPassword: new FormControl(null, [
+      Validators.required,
+      Validators.maxLength(30),
+      Validators.pattern('(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}')
     ]),
     email: new FormControl(null, [
       Validators.required,
-      Validators.pattern('[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}')
-      // Validators.email
+      Validators.email
     ]),
     avatar: new FormControl()
-  })
+  }, { validators: passwordConfirm })
 
   constructor() { }
 

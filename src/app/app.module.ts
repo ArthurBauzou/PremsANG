@@ -13,6 +13,7 @@ import { AddProdComponent } from './compoz/add-prod/add-prod.component';
 import { PanierComponent } from './compoz/panier/panier.component';
 import { UserComponent } from './compoz/user/user.component';
 import { SubscribeComponent } from './compoz/subscribe/subscribe.component';
+import { CustomValidatorsDirective } from './shared/customValidators.directive';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { SubscribeComponent } from './compoz/subscribe/subscribe.component';
     PanierComponent,
     UserComponent,
     SubscribeComponent,
+    CustomValidatorsDirective,
   ],
   imports: [
     BrowserModule,

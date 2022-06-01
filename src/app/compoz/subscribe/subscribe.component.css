@@ -8,12 +8,12 @@
 
 input.ng-invalid.ng-touched:not(.nocheck) {
     border-left: 4px solid red;
-    background-color: rgb(255, 242, 242);
+    background-color: #ffe9e9;
 }
 
 input.ng-valid.ng-touched:not(.nocheck) {
     border-left: 4px solid rgb(61, 205, 54);
-    background-color: #fbfff3;
+    background-color: #e1ffe5;
 }
 .errmsg i {
     margin-right: 16px;
