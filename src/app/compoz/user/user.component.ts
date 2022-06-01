@@ -11,7 +11,7 @@ import { UsersService } from 'src/app/services/users.service';
 export class UserComponent implements OnInit {
 
   errMsg: string = '';
-  user = new User('','','','',[])
+  user = new User('','','','','',[])
 
   @ViewChild('logwin') logwin!: ElementRef;
   @ViewChild('profwin') profwin!: ElementRef;
@@ -60,7 +60,7 @@ export class UserComponent implements OnInit {
   }
 
   disconnect() {
-    this.user = new User('','','','',[]);
+    this.user = new User('','','','','',[]);
     localStorage.removeItem('accessToken');
     this.profwin.nativeElement.classList.add('hidd');
   }

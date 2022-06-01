@@ -139,25 +139,38 @@
   "users": [
     {
       "id": 1,
+      "username": "arthur",
       "name": "Arthur",
-      "password": "superpoireau",
+      "password": "SuperPoireau77",
       "avatar": "./assets/images/avatars/blubAvatar.jpg",
       "email": "arthurbauzou@gmel.com",
       "roles": [
         "admin",
-        "peon"
+        "user"
       ]
     },
     {
       "id": 2,
+      "username": "gary",
       "name": "Gary",
-      "password": "blblblblbl",
+      "password": "BlubBlubBlub0",
       "avatar": "./assets/images/avatars/garyVatar.png",
       "email": "seasnail77@gmel.com",
       "roles": [
-        "peon",
-        "escargot"
+        "user"
       ]
+    },
+    {
+      "name": "Patrick",
+      "password": "BobBestFri3nd",
+      "confirmPassword": "BobBestFri3nd",
+      "email": "patrick@rock.bkb",
+      "avatar": "./assets/images/avatars/avatDefault04.jpg",
+      "username": "patrick",
+      "roles": [
+        "user"
+      ],
+      "id": 3
     }
   ]
 }

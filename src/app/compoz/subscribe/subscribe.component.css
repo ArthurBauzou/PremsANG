@@ -6,7 +6,7 @@
     border-radius: 2rem;
 }
 
-input.ng-invalid.ng-touched:not(.nocheck) {
+input.ng-invalid.ng-touched:not(.nocheck), #subPass2.customInvalid {
     border-left: 4px solid red;
     background-color: #ffe9e9;
 }
