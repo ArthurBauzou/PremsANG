@@ -1,11 +1,13 @@
 <div class="bg-secondary w-100 m-0 row p-4">
-  <div class="d-flex flex-row">
+  <div class="row">
     <h2 class="w-100">les utilisateurs</h2>
-    <div *ngFor="let u of users" class="container">
-      <div class="userContainer">
+    <div *ngFor="let u of users" class="userContainer col">
+
         <img src="{{u.avatar}}" alt="">
         <h4>{{u.name}}</h4>
-      </div>
+        <i *ngIf="u.username == user.username" class="fa-solid fa-star"></i>
+        <p>{{user.username}}</p>
+
     </div>
   </div>
 

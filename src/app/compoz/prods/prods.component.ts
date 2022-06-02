@@ -1,6 +1,8 @@
 import { Component, OnInit} from '@angular/core';
+import { User } from 'src/app/models/user.model';
 import { PanierService } from 'src/app/services/panier.service';
 import { ProdsService } from 'src/app/services/prods.service';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-prods',
@@ -12,6 +14,8 @@ export class ProdsComponent implements OnInit {
   prods: any = [];
   prodasup: any = {};
   prodedit: any = {};
+  user = new User('','','','','',[])
+
   filters:any = {
     "type": {
       "legume": false,
@@ -27,11 +31,15 @@ export class ProdsComponent implements OnInit {
 
   constructor(
     private _prodsService : ProdsService,
-    private _panierService : PanierService
+    private _panierService : PanierService,
+    private _usersServ: UsersService
     ) {}
 
   ngOnInit(): void {
     this.getProducts(this.filters);
+    this._usersServ.getCurrentUser().subscribe(
+      (u) => this.user = u
+    )
   }
   
   getProducts(param?:any){

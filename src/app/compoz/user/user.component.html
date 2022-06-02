@@ -40,10 +40,10 @@
   class="border border-2 border-white rounded-3 py-1 text-center"
   style="width: 36px; height: 36px"
   (click)="profwin.classList.toggle('hidd')">
-    <i class="fa-solid fa-face-laugh"></i>
+    <i class="fa-solid fa-face-laugh text-info"></i>
   </div>
   <!-- FENETRE PROFIL -->
-  <div class="user-connect hid-element" #profwin>
+  <div class="user-connect hid-element hidd" #profwin>
     <img src="{{user.avatar}}" alt="" 
       style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px; ">
     <h3 class="mb-0">{{user.name}}</h3>

@@ -61,7 +61,7 @@
 
   <!-- MAIN WINDOW : LES PRODUITS -->
   <div class="row col-11 ms-2" style="align-content: flex-start;">
-    <h2 class="text-center py-4" *ngIf="prods.length!=0">Les produits</h2>
+    <h2 class="text-center py-4" *ngIf="prods.length!=0">Les produits {{user.name}}</h2>
     <h2 class="text-center py-4" *ngIf="prods.length==0">Il n’y a aucun produits correspondant à vos critères, navré.</h2>
     <div class="col-lg-4 col-md-6 mb-4" *ngFor="let p of prods">
       <div style="height: 12rem; position: relative">
@@ -89,6 +89,7 @@
           </span>
           <!-- BOUTON EDITION -->
           <span
+          *ngIf="user.roles.includes('ADMIN')"
           class="btn btn-secondary mx-1"
           data-bs-toggle="modal"
           data-bs-target="#editModal"
@@ -96,7 +97,9 @@
             <i class="fa-solid fa-pen-to-square"></i>
           </span>
           <!-- BOUTON SUPPRESSION -->
-          <span class="btn btn-outline-danger"
+          <span
+          *ngIf="user.roles.includes('ADMIN')"
+          class="btn btn-outline-danger"
           data-bs-toggle="modal"
           data-bs-target="#suprModal"
           (click)="loadProdASupp(p)">

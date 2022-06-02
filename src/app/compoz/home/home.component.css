@@ -1,5 +1,6 @@
 .userContainer {
     position: relative;
+    margin: 16px;
 }
 .userContainer img {
     width: 120px;
@@ -9,8 +10,8 @@
 }
 .userContainer h4 {
     position: absolute;
-    bottom: 0px;
-    left: 8px;
+    top: 12px;
+    left: 0px;
     color: white;
     background-color: black;
     padding: 2px 6px;
