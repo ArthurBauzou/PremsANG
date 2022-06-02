@@ -1,46 +1,61 @@
+/* GÉNÉRAL */
 div.user-btn {
     position: relative;
     color: white;
     margin-left: 8px;
     margin-right: 16px;
 }
+.user-btn > div > i {
+    font-size: 24px;
+}
+.loginput {
+    display: flex;
+    flex-flow: column nowrap;
+    margin-bottom: 12px;
+}
+.loginput input {
+    padding: 4px;
+}
 
+/* FENÊTRE MODALE */
 .user-connect {
     z-index: 4;
-    border: 1px solid gray;
-    padding: 24px 12px;
+    padding: 24px 24px;
     margin-top: 18px;
-    width: 200px;
+    width: 256px;
+    height: 64vh;
+    min-height: 400px;
     background-color: #212529;
     position: absolute;
-    top: 48px;
-    right: 0px;
-    border-radius: 4px;
+    top: 26px;
+    right: -30px;
     color: white;
     transition: 0.2s;
     display: flex;
     flex-flow: column nowrap;
 }
-.user-connect button {
-    position: relative;
-    border: none;
-    margin-left: auto;
-    padding: 4px 24px;
+.hidd {
+    right: -300px;
 }
 
+/* TOOLTIP */
 .outip {
+    visibility: hidden;
     opacity: 0;
     position: absolute;
     background-color: white;
     padding: 8px;
-    /* top: -40px; */
-    bottom: -18px;
-    left: -90px;
+    bottom: -16px;
+    left: -92px;
     color: black;
     font-size: 0.8em;
     font-weight: 700;
     border-radius: 10px;
-    transition: 0.1s;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    transition: visibility 0s, opacity 0.1s linear;
+}
+.outipatch {
+    left: -110px;
 }
 .arr-down {
     position: absolute;
@@ -54,14 +69,5 @@ div.user-btn {
 }
 .user-connect button:hover .outip {
     opacity: 1;
-}
-
-.hidd {
-    right: -250px;
-}
-.loginput {
-    display: flex;
-    flex-flow: column nowrap;
-    margin-bottom: 12px;
-    padding: 0px 12px;
+    visibility: visible;
 }

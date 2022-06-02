@@ -27,7 +27,7 @@
         <i class="fa-solid fa-euro-sign"></i>
       </div>
 
-      <div #priceFilter class="hid-element hidd" id="minmaxPopup">
+      <div #priceFilter class="hid-element hidd" id="priceFilter">
         <form #priceForm="ngForm"
         (ngSubmit)="getPriceRange(priceForm);priceFilter.classList.add('hidd')"
         class="shadow">
@@ -53,6 +53,7 @@
             </button>
           </div>
         </form>
+        <span class="arr-left"></span>
       </div>
 
     </div>

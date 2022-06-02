@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { PanierService } from 'src/app/services/panier.service';
 
 @Component({
@@ -10,15 +10,19 @@ import { PanierService } from 'src/app/services/panier.service';
 export class PanierComponent implements OnInit {
 
   panier = new Map;
-  panierVisible: boolean = false;
+  // panierVisible: boolean = false;
   panierTotal: number = 0;
   nameProduct: any;
+  @ViewChild('panierWin') panierwin!: ElementRef
 
   constructor( private _panierServ: PanierService ) {}
 
   ngOnInit(): void {
     this._panierServ.ajouteAuPanier.subscribe(
-      (p) => this.ajouterProdPanier(p),
+      (p) => {
+        this.ajouterProdPanier(p)
+        this.panierwin.nativeElement.classList.remove('hidd')
+      },
       (err) => console.log(err)
     )
   }

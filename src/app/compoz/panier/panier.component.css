@@ -4,16 +4,14 @@ div.panier-btn {
 }
 
 .panier {
-    border: 1px solid gray;
     padding: 12px;
     margin-top: 18px;
     min-width: 330px;
     background-color: #212529;
     z-index: 10;
     position: absolute;
-    top: 50px;
-    right: -50px;
-    border-radius: 4px;
+    top: 28px;
+    right: -72px;
     transition: 0.2s;
 }
 
@@ -55,6 +53,5 @@ h4 {
 }
 
 .hidd {
-    /* display: none; */
     top: -500px;
 }

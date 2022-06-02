@@ -1,4 +1,4 @@
-/* carte produit */
+/* CARTES DES PRODUITS */
 .descrText {
     font-size: small;
     overflow: hidden;
@@ -31,21 +31,18 @@
     background-color: rgba(255, 242, 224, 0.9);
 }
 
-
-/* barre de filtres */
+/* BARRE LATERALE DES FILTRES */
 .filterBar {
     color: rgb(165, 165, 165);
     background-color: #212529;
-    width: 64px;
-    min-height: 100vh;
+    width: 72px;
+    min-height: 93vh;
     font-size: 1.6em;
-    padding: 16px;
-    padding-top: 0.6em;
+    padding: 20px;
     position: sticky;
-    top: 0px;
+    top: 56px;
     z-index: 3;
     align-self: flex-start;
-    padding-top: 64px;
 }
 .filterBar > div {
     border: 2px solid #212529;
@@ -63,26 +60,32 @@
 .filtreActif {
     color: white;
 }
-#minmaxPopup {
+
+/* FENETRE MODALE FOURCHETTE DE PRIX */
+#priceFilter {
     background-color: #212529;
-    border: 1px solid gray;
     z-index: 4;
     position: absolute;
     font-size: 0.8rem;
-    left: 32px;
+    left: 62px;
+    bottom: -12px;
     border-radius: 0.4em;
     color: white;
-    padding: 0.5em;
+    padding: 12px;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity 0.1s;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
-#minmaxPopup div {
+#priceFilter div {
     display: flex;
     align-items: center;
 }
-#minmaxPopup label {
+#priceFilter label {
     width: 3em;
     padding-left: 0.5em;
 }
-#minmaxPopup input {
+#priceFilter input {
     -moz-appearance: textfield;
     appearance: textfield;
     margin: 0;
@@ -95,19 +98,29 @@
     width: 3em;
     color: white;
 }
-#minmaxPopup button {
+#priceFilter button {
     width: 100%;
     height: 1.4em;
     font-size: 1.3em;
     padding: 0;
     line-height: 1.2em;
 }
-#minmaxPopup button i {
+#priceFilter button i {
     margin: 0;
     padding: 0;
 }
-
-.hidd {
-    display: none;
+#priceFilter.hidd {
+    visibility: hidden;
+    opacity: 0;
+}
+.arr-left {
+    position: absolute;
+    bottom: 16px;
+    left: -10px;
+    width: 0; 
+    height: 0; 
+    border-right: 18px solid #212529;
+    border-bottom: 16px solid transparent;
+    border-top: 16px solid transparent;
 }
 

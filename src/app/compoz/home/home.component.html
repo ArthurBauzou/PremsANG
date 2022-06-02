@@ -1,8 +1,12 @@
-<div class="bg-secondary w-100" style="height:100vh; padding: 45px 120px">
-
-    <div *ngFor="let u of users" class="userContainer m-2">
-      <img src="{{u.avatar}}" alt="">
-      <h4>{{u.name}}</h4>
+<div class="bg-secondary w-100 m-0 row p-4">
+  <div class="d-flex flex-row">
+    <h2 class="w-100">les utilisateurs</h2>
+    <div *ngFor="let u of users" class="container">
+      <div class="userContainer">
+        <img src="{{u.avatar}}" alt="">
+        <h4>{{u.name}}</h4>
+      </div>
     </div>
+  </div>
 
 </div>

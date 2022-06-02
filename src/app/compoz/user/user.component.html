@@ -21,33 +21,43 @@
         <p class="text-danger">{{errMsg}}</p>
       </div>
       <div class="loginput">
-        <button role="submit" class="btn btn-primary">
+        <button role="submit" class="btn btn-primary position-relative">
           <i class="fa-solid fa-right-to-bracket"></i>
           <p class="outip">Connexion<span class="arr-down"></span></p>
         </button>
       </div>
     </form>
-    <p class="text-center text-small text-secondary mt-4">pas de compte ?</p>
-    <a class="btn btn-primary me-1" href="/inscription">créer un compte</a>
+    <div class="mt-auto">
+      <p class="text-center text-small text-secondary">pas de compte ?</p>
+      <a class="btn btn-primary w-100" href="/inscription">créer un compte</a>
+    </div>
   </div>
 </div>
 <!-- PROFIL -->
 <div class="user-btn hid-container" *ngIf="user.name">
   <!-- BOUTON PROFIL -->
-  <div role="button"
-  class="border border-2 border-white rounded-3"
+  <div role="button" 
+  class="border border-2 border-white rounded-3 py-1 text-center"
   style="width: 36px; height: 36px"
   (click)="profwin.classList.toggle('hidd')">
-    <img src="{{user.avatar}}" alt="" style="width: 100%; height: 100%; object-fit: cover">
+    <i class="fa-solid fa-face-laugh"></i>
   </div>
   <!-- FENETRE PROFIL -->
-  <div class="user-connect hid-element hidd" #profwin>
-    <p>profil de l’utilisateur {{user.name}}</p>
-    <div class="loginput">
-      <button role="button" class="btn btn-danger"
+  <div class="user-connect hid-element" #profwin>
+    <img src="{{user.avatar}}" alt="" 
+      style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px; ">
+    <h3 class="mb-0">{{user.name}}</h3>
+    <small class="mb-2">profil de l’utilisateur</small>
+    <!-- <div class="loginput">
+      <label for="changeAvat">Changer l’avatar</label>
+      <input type="text" id="changeAvat">
+      <button class="btn btn-secondary mt-2">save</button>
+    </div> -->
+    <div class="mt-auto mb-0 loginput">
+      <button role="button" class="btn btn-danger position-relative"
       (click)="disconnect()">
         <i class="fa-solid fa-power-off"></i>
-        <p class="outip">Se déconecter<span class="arr-down"></span></p>
+        <p class="outip outipatch">Se déconecter<span class="arr-down"></span></p>
       </button>
     </div>
   </div>

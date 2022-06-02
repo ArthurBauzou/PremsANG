@@ -21,8 +21,7 @@ export class AppComponent implements OnInit {
     let tglbtns = document.querySelectorAll('.hid-container')
     tglbtns. forEach((btn) => {
       if (!btn.contains(elt)) {
-        let hidwin = btn.querySelector('.hid-element');
-        hidwin ? hidwin.classList.add('hidd') : console.log('pas de truc a cacher')
+        btn.querySelector('.hid-element')?.classList.add('hidd')
       } 
     } )
   }

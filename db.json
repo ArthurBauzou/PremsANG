@@ -145,8 +145,8 @@
       "avatar": "./assets/images/avatars/blubAvatar.jpg",
       "email": "arthurbauzou@gmel.com",
       "roles": [
-        "admin",
-        "user"
+        "ADMIN",
+        "USER"
       ]
     },
     {
@@ -157,20 +157,30 @@
       "avatar": "./assets/images/avatars/garyVatar.png",
       "email": "seasnail77@gmel.com",
       "roles": [
-        "user"
+        "USER"
       ]
     },
     {
-      "name": "Patrick",
-      "password": "BobBestFri3nd",
-      "confirmPassword": "BobBestFri3nd",
-      "email": "patrick@rock.bkb",
-      "avatar": "./assets/images/avatars/avatDefault04.jpg",
-      "username": "patrick",
+      "username": "bob",
+      "name": "Bob",
+      "password": "SalutCarlo0",
+      "avatar": "./assets/images/avatars/avatDefault03.jpg",
+      "email": "bob@crustycrab.bkb",
       "roles": [
-        "user"
+        "USER"
       ],
       "id": 3
+    },
+    {
+      "username": "travis",
+      "name": "Travis",
+      "password": "GaGA12345678",
+      "avatar": "./assets/images/avatars/avatDefault02.jpg",
+      "email": "travis@gros.fr",
+      "roles": [
+        "USER"
+      ],
+      "id": 4
     }
   ]
 }

@@ -35,9 +35,6 @@
     <div class="form-floating mb-3" *ngIf="pass.value">
       <input type="password" class="form-control" id="subPass2" formControlName="confirmPassword" 
       [class.customInvalid]="subForm.hasError('passwordDontMatch') && subForm.get('confirmPassword')?.touched">
-      <!-- <input type="password" class="form-control" id="subPass2" formControlName="confirmPassword" 
-      [ngClass]="{'ng-invalid': subForm.hasError('passwordDontMatch'),
-                  'ng-valid': !subForm.hasError('passwordDontMatch')}"> -->
       <label for="subPass2" class="form-label">Confirmer le mot de passe</label>
       <div *ngIf="subForm.get('confirmPassword')?.touched" class="errmsg">
         <small *ngIf="subForm.hasError('passwordDontMatch')" class="text-danger ps-2">

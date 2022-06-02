@@ -18,7 +18,7 @@ export class SubscribeComponent implements OnInit {
     name: new FormControl(null, [
       Validators.required,
       Validators.minLength(3),
-      Validators.pattern('[\\w]+'),
+      Validators.pattern('\\w+'),
       userNameBan(this.usernameBanList)
     ]),
     password: new FormControl(null, [
@@ -51,15 +51,22 @@ export class SubscribeComponent implements OnInit {
         this.usernameBanList.push(username)
         this.subForm.controls['name'].updateValueAndValidity();
       } else {
-        let newUser: User = this.subForm.value
+        let newUser = new User(
+          username,
+          this.subForm.value.name,
+          this.subForm.value.password,
+          this.subForm.value.avatar,
+          this.subForm.value.email,
+          ["USER"]
+        )
         if (!newUser.avatar) {
           newUser.avatar = `./assets/images/avatars/avatDefault0${Math.ceil(Math.random() * 4)}.jpg`
         }
-        newUser.username = username
-        newUser.roles = []
-        newUser.roles.push("user")
         this._usersService.registerUser(newUser).subscribe({
-          next: () => console.log("utilisateur enregistré : ", newUser),
+          next: () => {
+            console.log("utilisateur enregistré : ", newUser)
+            // envoyer l’user au current user
+          },
           error: (err) => console.log("il y a eu une erreur omg", err),
           complete: () => { this._router.navigate(['']) }
         })

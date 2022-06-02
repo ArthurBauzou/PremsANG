@@ -3,7 +3,7 @@
     <i class="fa-solid fa-cart-shopping"></i>
   </div>
   <div class="panier hid-element hidd" #panierWin>
-    <h4>MON PANIER</h4>
+    <h4>Mon Panier</h4>
     <p *ngIf="panier.size==0">Vous n’avez aucun produit dans votre panier</p>
     <div *ngFor="let p of panier | keyvalue" class="panierItem">
       <span>{{p.value.name}}</span>
