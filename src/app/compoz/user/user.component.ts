@@ -37,7 +37,10 @@ export class UserComponent implements OnInit {
     let pwd = loginfo.value.password
     if (nm != '' && pwd != '') {
       this._usersServ.login(nm, pwd).subscribe(
-        (u:User) => this.user = u,
+        (u:User) => {
+          console.log('dans le loguser', u)
+          this.user = u
+        },
         (err:any) => console.log(err)
       );
       // this.getUser();

@@ -22,8 +22,8 @@ export class UsersService {
     this.userObs = new BehaviorSubject(tokenClair)
   }
   
-  login(name:string, password:string):any {
-    this.checkUser(name).subscribe((u:any)=>{
+  login(name:string, password:string): Observable<any> {
+    this.checkUser(name).pipe((u:any)=>{
       if (u.length != 0) {
         if (password == u[0].password) {
           let logUser = new User(
@@ -33,15 +33,13 @@ export class UsersService {
             u[0].email,
             u[0].roles
           )
-          this.userObs = new BehaviorSubject(logUser)
-          console.log(this.userObs.asObservable());
+          console.log(logUser)
+          this.userObs = new BehaviorSubject(logUser);
           return this.userObs.asObservable();
-
-          // return this.userObs.asObservable()
         } else {
           console.log('mauvais mot de passe');
           const err = new Error("mauvais mot de passe")
-          return err
+          return this.userObs.asObservable();
           // throw throwError(()=>{
           //   const err = new Error("mauvais mot de passe")
           //   return err
@@ -50,16 +48,15 @@ export class UsersService {
       } else {
         console.log('util non trouvé');
         const err = new Error("cet utilisateur n’existe pas")
-        return err
+        return this.userObs.asObservable();
         // throw throwError(()=>{
         //   const err = new Error("cet utilisateur n’existe pas")
         //   return err
         // }) 
       }
-      //     return {status: "ok", code: '00', msg: `${u[0].name} logged in`}
-      //   } else { return {status: "err", code: '01', msg: `mauvais mot de passe`} }
-      // } else { return {status: "err", code: '02', msg: `cet utilisateur n’existe pas`} }
     })
+    console.log('finfonction')
+    return this.userObs.asObservable();
   }
 
   disconnect() {
