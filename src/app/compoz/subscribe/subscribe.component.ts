@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from 'src/app/models/user.model';
 import { UsersService } from 'src/app/services/users.service';
 import { passwordConfirm, userNameBan } from 'src/app/shared/customValidators.directive';
 
@@ -51,14 +50,14 @@ export class SubscribeComponent implements OnInit {
         this.usernameBanList.push(username)
         this.subForm.controls['name'].updateValueAndValidity();
       } else {
-        let newUser = new User(
-          username,
-          this.subForm.value.name,
-          this.subForm.value.password,
-          this.subForm.value.avatar,
-          this.subForm.value.email,
-          ["USER"]
-        )
+        let newUser = {
+          'username': username,
+          'name': this.subForm.value.name,
+          'password': this.subForm.value.password,
+          'avatar': this.subForm.value.avatar,
+          'email': this.subForm.value.email,
+          'roles': ["USER"]
+        }
         if (!newUser.avatar) {
           newUser.avatar = `./assets/images/avatars/avatDefault0${Math.ceil(Math.random() * 4)}.jpg`
         }

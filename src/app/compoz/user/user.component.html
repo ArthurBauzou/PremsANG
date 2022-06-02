@@ -14,11 +14,12 @@
       <div class="loginput">
         <label for="userlogin">Identifiant</label>
         <input type="text" id="userlogin" name="name" ngModel>
+        <small class="text-danger">{{errMsg1}}</small>
       </div>
       <div class="loginput">
         <label for="userpwd">Mot de passe</label>
         <input type="password" id="userpwd" name="password" ngModel>
-        <p class="text-danger">{{errMsg}}</p>
+        <small class="text-danger">{{errMsg2}}</small>
       </div>
       <div class="loginput">
         <button role="submit" class="btn btn-primary position-relative">

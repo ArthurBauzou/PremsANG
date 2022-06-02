@@ -4,9 +4,9 @@
     <div *ngFor="let u of users" class="userContainer col">
 
         <img src="{{u.avatar}}" alt="">
-        <h4>{{u.name}}</h4>
-        <i *ngIf="u.username == user.username" class="fa-solid fa-star"></i>
-        <p>{{user.username}}</p>
+        <h4>{{u.name}}
+          <i *ngIf="u.username == user.username" class="fa-solid fa-star"></i>
+        </h4>
 
     </div>
   </div>

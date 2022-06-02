@@ -14,7 +14,7 @@ export class ProdsComponent implements OnInit {
   prods: any = [];
   prodasup: any = {};
   prodedit: any = {};
-  user = new User('','','','','',[])
+  user = new User()
 
   filters:any = {
     "type": {

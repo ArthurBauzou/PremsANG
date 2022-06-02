@@ -19,3 +19,11 @@
     z-index: 2;
     font-weight: 600;
 }
+.userContainer i {
+    position: absolute;
+    top: -18px;
+    right: -22px;
+    color: yellow;
+    font-size: 32px;
+    transform: rotate(40deg);
+}

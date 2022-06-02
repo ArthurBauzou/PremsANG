@@ -10,7 +10,7 @@ import { User } from 'src/app/models/user.model';
 export class HomeComponent implements OnInit {
   
   users: User[] = [];
-  user = new User('','','','','',[])
+  user = new User()
 
   constructor(
     private _usersServ: UsersService

@@ -1,5 +1,4 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { JwtHelperService } from '@auth0/angular-jwt';
 import { User } from 'src/app/models/user.model';
 import { UsersService } from 'src/app/services/users.service';
 
@@ -10,69 +9,64 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class UserComponent implements OnInit {
 
-  errMsg: string = '';
-  user = new User('','','','','',[])
+  errMsg1: string = '';
+  errMsg2: string = '';
+  user = new User()
 
   @ViewChild('logwin') logwin!: ElementRef;
   @ViewChild('profwin') profwin!: ElementRef;
 
   constructor(
-    private _jwtHelper: JwtHelperService,
     private _usersServ: UsersService
   ) { }
   
   ngOnInit(): void {
+    this.getUser()
+  }
+
+  getUser() {
     this._usersServ.getCurrentUser().subscribe(
       (u) => this.user = u
     )
-    // let token: string | null = localStorage.getItem('accessToken')
-    // if (token != null) {
-    //   let tokenClair = this._jwtHelper.decodeToken(token)
-    //   console.log(`Y’a un token pour ${tokenClair.name}`)
-    //   this._usersServ.checkUser(tokenClair.name).subscribe((u:any) => {
-    //     this.user = u[0]
-    //     this._usersServ.provideCurrentUser.emit(this.user)
-    //   })
-    // }
-    // this._usersServ.askCurrentUser.subscribe(() => {
-    //     console.log('on me demande l’utilisateur, je renvoie ', this.user)
-    //     this._usersServ.provideCurrentUser.emit(this.user)
-    //   }
-    // )
   }
 
   logUser(loginfo:any) {
-    this.errMsg = ""
+    this.errMsg1 = ""
+    this.errMsg2 = ""
     let nm = loginfo.value.name
     let pwd = loginfo.value.password
-    if (nm != '' || pwd != '') {
-      this._usersServ.checkUser(nm).subscribe((u: any) => {
-          if (u.length != 0) {
-            if (pwd == u[0].password) {
-              this.user = u[0]
-              this._usersServ.provideCurrentUser.emit(this.user)
+    if (nm != '' && pwd != '') {
+      this._usersServ.login(nm, pwd).subscribe(
+        (u:User) => this.user = u,
+        (err:any) => console.log(err)
+      );
+      // this.getUser();
 
-              // simul token
-              if (this.user.username == "arthur") {
-                let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFydGh1ciIsIm5hbWUiOiJBcnRodXIiLCJwYXNzd29yZCI6ImxvbHV3aXNoIiwiZW1haWwiOiJhcnRodXJiYXV6b3VAZ21lbC5jb20iLCJhdmF0YXIiOiIuL2Fzc2V0cy9pbWFnZXMvYXZhdGFycy9ibHViQXZhdGFyLmpwZyIsInJvbGVzIjpbIkFETUlOIiwiVVNFUiJdfQ.VsKAR4Ff5w0G26ysJgS5-Bon-5HQJIuQXAedZcZS2Ro';
-                localStorage.setItem('accessToken', token);
-                console.log("token envoyé", token)
-              }
-
-              this.logwin.nativeElement.classList.add('hidd')
-            }
-            else { this.errMsg = "mauvais mot de passe" }
-          }
-          else { this.errMsg = "l’utilisateur n’existe pas" }
-      });
+      // this._usersServ.login(nm, pwd).subscribe({
+      //   next: (u: User) => {
+      //     this.user = u
+      //     console.log('salut on est dans next');
+      //     this.logwin.nativeElement.classList.add('hidd')
+      //     // <simultoken
+      //     // let token = ''
+      //     // switch(this.user.username) {
+      //     //   case "arthur" : token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFydGh1ciIsIm5hbWUiOiJBcnRodXIiLCJlbWFpbCI6ImFydGh1cmJhdXpvdUBnbWVsLmNvbSIsImF2YXRhciI6Ii4vYXNzZXRzL2ltYWdlcy9hdmF0YXJzL2JsdWJBdmF0YXIuanBnIiwicm9sZXMiOlsiQURNSU4iLCJVU0VSIl19.Js09pGUO_BtippndfzRTc7T6HWLxtsRmGnnsiPVkttU'; break;
+      //     //   case "gary" : token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdhcnkiLCJuYW1lIjoiR2FyeSIsImF2YXRhciI6Ii4vYXNzZXRzL2ltYWdlcy9hdmF0YXJzL2dhcnlWYXRhci5wbmciLCJlbWFpbCI6InNlYXNuYWlsNzdAZ21lbC5jb20iLCJyb2xlcyI6WyJVU0VSIl19.au3Ru1ZyOODEppwnGE3gGZ8DRXsS4_fwl7xcfg7LLnw'; break;
+      //     // }
+      //     // if (token!='') {localStorage.setItem('accessToken', token);}
+      //     // simultoken>
+      //   },
+      //   error: (err:any) => console.log(err),
+      //   continue: () => console.log('on est dans continue')
+        
+      // })
     }
-    else { this.errMsg = "veuillez renseigner les champs" }
+    else { this.errMsg2 = "veuillez renseigner les champs" }
   }
 
   disconnect() {
-    this.user = new User('','','','','',[]);
+    this.user = new User();
     localStorage.removeItem('accessToken');
-    this._usersServ.provideCurrentUser.emit(this.user)
     this.profwin.nativeElement.classList.add('hidd');
   }
 
