@@ -22,6 +22,7 @@ export class UserComponent implements OnInit {
   
   ngOnInit(): void {
     this.getUser()
+    this._usersServ.refreshUser.subscribe(() => this.getUser())
   }
 
   getUser() {
@@ -30,6 +31,13 @@ export class UserComponent implements OnInit {
     )
   }
 
+  // TEST
+  testMessages(mess:any) {
+    let remove: boolean = (mess.value.password != '')
+    remove ? this._usersServ.clear() : this._usersServ.sendMessage(mess.value.name)
+  }
+  // TEST
+
   logUser(loginfo:any) {
     this.errMsg1 = ""
     this.errMsg2 = ""
@@ -37,9 +45,18 @@ export class UserComponent implements OnInit {
     let pwd = loginfo.value.password
     if (nm != '' && pwd != '') {
       this._usersServ.login(nm, pwd).subscribe(
-        (u:User) => {
-          console.log('dans le loguser', u)
-          this.user = u
+        (u:User[]) => {
+          this.user = u[0]
+          
+          // <simultoken
+          let token = ''
+          switch(this.user.username) {
+            case "arthur" : token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFydGh1ciIsIm5hbWUiOiJBcnRodXIiLCJlbWFpbCI6ImFydGh1cmJhdXpvdUBnbWVsLmNvbSIsImF2YXRhciI6Ii4vYXNzZXRzL2ltYWdlcy9hdmF0YXJzL2JsdWJBdmF0YXIuanBnIiwicm9sZXMiOlsiQURNSU4iLCJVU0VSIl19.Js09pGUO_BtippndfzRTc7T6HWLxtsRmGnnsiPVkttU'; break;
+            case "gary" : token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImdhcnkiLCJuYW1lIjoiR2FyeSIsImF2YXRhciI6Ii4vYXNzZXRzL2ltYWdlcy9hdmF0YXJzL2dhcnlWYXRhci5wbmciLCJlbWFpbCI6InNlYXNuYWlsNzdAZ21lbC5jb20iLCJyb2xlcyI6WyJVU0VSIl19.au3Ru1ZyOODEppwnGE3gGZ8DRXsS4_fwl7xcfg7LLnw'; break;
+          }
+          if (token!='') {localStorage.setItem('accessToken', token);}
+          // simultoken>
+
         },
         (err:any) => console.log(err)
       );
@@ -68,8 +85,7 @@ export class UserComponent implements OnInit {
   }
 
   disconnect() {
-    this.user = new User();
-    localStorage.removeItem('accessToken');
+    this._usersServ.disconnect();
     this.profwin.nativeElement.classList.add('hidd');
   }
 

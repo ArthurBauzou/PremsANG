@@ -37,11 +37,16 @@ export class ProdsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProducts(this.filters);
+    this.getUser()
+    this._usersServ.refreshUser.subscribe(()=>this.getUser())
+  }
+  
+  getUser() {
     this._usersServ.getCurrentUser().subscribe(
       (u) => this.user = u
     )
   }
-  
+
   getProducts(param?:any){
     this._prodsService.getProds(param).subscribe({
       next: (d) => this.prods = d,

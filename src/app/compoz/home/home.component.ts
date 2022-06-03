@@ -12,15 +12,21 @@ export class HomeComponent implements OnInit {
   users: User[] = [];
   user = new User()
 
+  // test messages
+  messages: any[] = ["premier message"];
+
   constructor(
     private _usersServ: UsersService
-  ) { }
+  ) {
+    this._usersServ.onMessage().subscribe((message) => {
+      message == "clear" ? this.messages = [] : this.messages.push(message)
+    })
+  }
 
   ngOnInit(): void {
     this.getUsers()
-    this._usersServ.getCurrentUser().subscribe(
-      (u) => this.user = u
-    )
+    this.getUser()
+    this._usersServ.refreshUser.subscribe(()=>this.getUser())
   }
   
   getUsers() {
@@ -30,5 +36,11 @@ export class HomeComponent implements OnInit {
       complete: ()=> {}
     })
   }
+  getUser() {
+    this._usersServ.getCurrentUser().subscribe(
+      (u) => this.user = u
+    )
+  }
+
 
 }

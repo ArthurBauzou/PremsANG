@@ -1,13 +1,31 @@
 <div class="bg-secondary w-100 m-0 row p-4">
-  <div class="row">
-    <h2 class="w-100">les utilisateurs</h2>
+  <!-- RecapUser -->
+  <div class="row p-2">
+    <h2 class="w-100 mb-2">Les utilisateurs</h2>
     <div *ngFor="let u of users" class="userContainer col">
-
         <img src="{{u.avatar}}" alt="">
         <h4>{{u.name}}
           <i *ngIf="u.username == user.username" class="fa-solid fa-star"></i>
         </h4>
+    </div>
+  </div>
 
+  <!-- zone message test -->
+  <div>
+    <p *ngFor="let m of messages" >{{m}}</p>
+  </div>
+
+  <!-- Zone Admin -->
+  <div class="row border-top p-2" *ngIf="user.roles.includes('ADMIN')">
+    <h2 class="w-100 mb-2">Vos outils d’administration</h2>
+    <div class="py-2">
+      <a href="/ajouter-un-produit" class="btn btn-dark">Ajouter un produit</a>
+    </div>
+    <div class="py-2">
+      <a href="" class="btn btn-dark">Changer les roles</a>
+    </div>
+    <div class="py-2">
+      <a href="" class="btn btn-dark">Supprimer un utilisateur</a>
     </div>
   </div>
 

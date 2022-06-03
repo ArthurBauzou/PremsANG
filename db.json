@@ -181,6 +181,17 @@
         "USER"
       ],
       "id": 4
+    },
+    {
+      "username": "patrick",
+      "name": "Patrick",
+      "password": "BobBestFri3nd",
+      "avatar": "https://media.nu.nl/m/2w2xghiaiav3_wd1280.jpg/patrick-ster-uit-animatieserie-spongebob-squarepants-krijgt-eigen-serie.jpg",
+      "email": "patrick@pole-emploi.fr",
+      "roles": [
+        "USER"
+      ],
+      "id": 5
     }
   ]
 }

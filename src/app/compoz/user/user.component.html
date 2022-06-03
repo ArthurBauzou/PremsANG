@@ -10,7 +10,8 @@
   <!-- FENÊTRE -->
   <div class="user-connect hid-element hidd" #logwin>
     <h4 class="text-center mb-4">Connexion</h4>
-    <form #login="ngForm" (ngSubmit)="logUser(login)">
+    <form #login="ngForm" (ngSubmit)="testMessages(login)">
+    <!-- <form #login="ngForm" (ngSubmit)="logUser(login)"> -->
       <div class="loginput">
         <label for="userlogin">Identifiant</label>
         <input type="text" id="userlogin" name="name" ngModel>
