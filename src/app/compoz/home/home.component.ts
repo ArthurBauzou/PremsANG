@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UsersService } from 'src/app/services/users.service';
 import { User } from 'src/app/models/user.model';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -11,22 +12,19 @@ export class HomeComponent implements OnInit {
   
   users: User[] = [];
   user = new User()
+  userAbo: Subscription;
 
   // test messages
   messages: any[] = ["premier message"];
 
   constructor(
     private _usersServ: UsersService
-  ) {
-    this._usersServ.onMessage().subscribe((message) => {
-      message == "clear" ? this.messages = [] : this.messages.push(message)
-    })
-  }
+  ) { 
+    this.userAbo = this._usersServ.userChange().subscribe((u)=>this.user=u)
+   }
 
   ngOnInit(): void {
     this.getUsers()
-    this.getUser()
-    this._usersServ.refreshUser.subscribe(()=>this.getUser())
   }
   
   getUsers() {
@@ -36,11 +34,5 @@ export class HomeComponent implements OnInit {
       complete: ()=> {}
     })
   }
-  getUser() {
-    this._usersServ.getCurrentUser().subscribe(
-      (u) => this.user = u
-    )
-  }
-
 
 }

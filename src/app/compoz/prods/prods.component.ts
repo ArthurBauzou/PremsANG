@@ -1,4 +1,5 @@
 import { Component, OnInit} from '@angular/core';
+import { Subscription } from 'rxjs';
 import { User } from 'src/app/models/user.model';
 import { PanierService } from 'src/app/services/panier.service';
 import { ProdsService } from 'src/app/services/prods.service';
@@ -14,7 +15,8 @@ export class ProdsComponent implements OnInit {
   prods: any = [];
   prodasup: any = {};
   prodedit: any = {};
-  user = new User()
+  user = new User();
+  userAbo: Subscription;
 
   filters:any = {
     "type": {
@@ -33,18 +35,12 @@ export class ProdsComponent implements OnInit {
     private _prodsService : ProdsService,
     private _panierService : PanierService,
     private _usersServ: UsersService
-    ) {}
+  ) {
+    this.userAbo = this._usersServ.userChange().subscribe((u)=>this.user=u)
+  }
 
   ngOnInit(): void {
     this.getProducts(this.filters);
-    this.getUser()
-    this._usersServ.refreshUser.subscribe(()=>this.getUser())
-  }
-  
-  getUser() {
-    this._usersServ.getCurrentUser().subscribe(
-      (u) => this.user = u
-    )
   }
 
   getProducts(param?:any){

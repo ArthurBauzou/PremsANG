@@ -10,11 +10,6 @@
     </div>
   </div>
 
-  <!-- zone message test -->
-  <div>
-    <p *ngFor="let m of messages" >{{m}}</p>
-  </div>
-
   <!-- Zone Admin -->
   <div class="row border-top p-2" *ngIf="user.roles.includes('ADMIN')">
     <h2 class="w-100 mb-2">Vos outils d’administration</h2>

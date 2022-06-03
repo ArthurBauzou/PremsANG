@@ -64,7 +64,6 @@ export class SubscribeComponent implements OnInit {
         this._usersService.registerUser(newUser).subscribe({
           next: () => {
             console.log("utilisateur enregistré : ", newUser)
-            this._usersService.newUserRegistered.emit(newUser)
             // envoyer l’user au current user
           },
           error: (err) => console.log("il y a eu une erreur omg", err),
